@@ -4,7 +4,8 @@
   "description": "Figo",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "start": "node inedx.js"
   },
   "keywords": [
     "oroscopo"
