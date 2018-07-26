@@ -21,6 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // /* Register REST entry point */
 app.get("/oroscopoOdierno/:id", function(req, res) {
   var ID = req.params.id;
+  //Storing data:
+    myObj = {};
+    myJSON = JSON.stringify(myObj);
+    myObj["Nome"]= "Dio cane";
+
   const options = {
     uri: "https://oroscopo.sky.it/oroscopo/giorno/"+ ID+".html",
     transform: function (body) {
@@ -29,29 +34,22 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
   };
   rp(options)
     .then(($) => {
-      res.send((JSON.stringify($('.c-multi-tab__tab-body.j-tabs-tab0.is-active').text())));
+
+      var megaDiv= $('.c-multi-tab__tab-body.j-tabs-tab0.is-active');
+
+      myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
+
+      myObj["BKhmbdwekfjbhr"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(1).text());
+      myObj["Descrizione"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(2).text());
+      myObj["PUTTNAN"] = "FUCK ME SIDEWAYS";
+
+      res.send(myObj);
     })
     .catch((err) => {
       console.log(err);
     });
 });
-app.get("/oroscopoOdierno/:params", function(req, res) {
-  console.log(req.query.name);
-  const options = {
-    uri: "https://oroscopo.sky.it/oroscopo/giorno/"+ req.query.name+".html",
-    transform: function (body) {
-      return cheerio.load(body);
-    }
-  };
-  rp(options)
-    .then(($) => {
-      console.log($('.c-multi-tab__tab-body.j-tabs-tab0.is-active').text());
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  console.log(Object.keys(req.query)[0]);
-});
+
 
 // app.use(function(req, res) {
 //   res.status(400);

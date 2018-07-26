@@ -35,9 +35,10 @@ function addPersonale(data)
 
 function testing () {
     $(document).ready(function LoadInfo() {
-         $.getJSON(window.location.search.substring(1) , function(result){
+         $.getJSON(" /oroscopoOdierno/leone " , function(result){
                 $.each(result, function(i, field){
-                    $("#Titolo").text(field.Nome);
+                  console.log("MADONNA\n"+field);
+                    $("#Titolo").text((field[0]));
                     });
          }
 )});}
