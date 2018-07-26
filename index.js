@@ -9,21 +9,6 @@ const cheerio = require('cheerio');
 const _ = require("lodash");
 
 
-const options = {
-  uri: `https://oroscopo.sky.it/oroscopo/giorno/leone.html`,
-  transform: function (body) {
-    return cheerio.load(body);
-  }
-};
-
-
-rp(options)
-  .then(($) => {
-    console.log($('.c-multi-tab__tab-body.j-tabs-tab0.is-active').text());
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 
 let serverPort = process.env.PORT || 5000;
@@ -34,11 +19,38 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // /* Register REST entry point */
-
+app.get("/oroscopoOdierno/:id", function(req, res) {
+  var ID = req.params.id;
+  const options = {
+    uri: "https://oroscopo.sky.it/oroscopo/giorno/"+ ID+".html",
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+  rp(options)
+    .then(($) => {
+      res.send((JSON.stringify($('.c-multi-tab__tab-body.j-tabs-tab0.is-active').text())));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 app.get("/oroscopoOdierno/:params", function(req, res) {
   console.log(req.query.name);
+  const options = {
+    uri: "https://oroscopo.sky.it/oroscopo/giorno/"+ req.query.name+".html",
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+  rp(options)
+    .then(($) => {
+      console.log($('.c-multi-tab__tab-body.j-tabs-tab0.is-active').text());
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   console.log(Object.keys(req.query)[0]);
-
 });
 
 // app.use(function(req, res) {
