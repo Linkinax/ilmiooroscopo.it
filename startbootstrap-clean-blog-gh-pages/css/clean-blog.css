@@ -44,7 +44,9 @@ blockquote {
   font-weight: 700;
   margin-top: 60px;
 }
-
+.madonna{
+background-color: #1fe88dbd;
+}
 .caption {
   font-size: 14px;
   font-style: italic;
@@ -410,7 +412,7 @@ footer .copyright {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background-color: #00657b !important;
+  background-color: #17a2b894 !important;
   border-color: #00657b !important;
 }
 
