@@ -24,7 +24,6 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
   //Storing data:
     myObj = {};
     myJSON = JSON.stringify(myObj);
-    myObj["Nome"]= "Dio cane";
 
   const options = {
     uri: "https://oroscopo.sky.it/oroscopo/giorno/"+ ID+".html",
@@ -37,11 +36,13 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
 
       var megaDiv= $('.c-multi-tab__tab-body.j-tabs-tab0.is-active');
 
-      myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
+      console.log(megaDiv.html());
 
-      myObj["BKhmbdwekfjbhr"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(1).text());
-      myObj["Descrizione"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(2).text());
-      myObj["PUTTNAN"] = "FUCK ME SIDEWAYS";
+      myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
+      myObj["Segno"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > b").text());
+      myObj["Generale"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(1).text());
+      myObj["Amore"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(2).text());
+      myObj["Lavoro"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(3).text());
 
       res.send(myObj);
     })

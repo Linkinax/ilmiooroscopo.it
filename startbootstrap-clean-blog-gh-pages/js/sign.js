@@ -37,8 +37,11 @@ function testing () {
     $(document).ready(function LoadInfo() {
          $.getJSON(" /oroscopoOdierno/leone " , function(result){
                 $.each(result, function(i, field){
-                  console.log("MADONNA\n"+field);
-                    $("#Titolo").text((field[0]));
+                  console.log(field);
+                    $("#Titolo").text(("L'oroscopo per: "+result.Segno));
+                    $("#DescrizioneGenerale").text((result.Generale));
+                    $("#DescrizioneAmore").text((result.Amore));
+                    $("#DescrizioneLavoro").text((result.Lavoro));
                     });
          }
 )});}
