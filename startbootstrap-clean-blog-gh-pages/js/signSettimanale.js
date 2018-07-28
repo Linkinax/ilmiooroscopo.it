@@ -6,6 +6,7 @@ function getSignFromUrl() {
 }
 
 function testing () {
+    if (getSignFromUrl() != null){
     $(document).ready(function LoadInfo() {
          $.getJSON(" /oroscopoSettimanale/"+getSignFromUrl() , function(result){
                 $.each(result, function(i, field){
@@ -18,6 +19,8 @@ function testing () {
                     $("#DescrizioneLavoro").text((result.Lavoro));
                     });
          }
-)});}
+)});
+}
+}
 
 testing();
