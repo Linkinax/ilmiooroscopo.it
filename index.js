@@ -26,7 +26,7 @@ app.get('/sitemap.xml', function(req, res){
     res.sendFile(path.join(__dirname , '/sitemap.xml'));
 });
 app.get('/robots.txt', function(req, res){
-    res.contentType('application/txt');
+    res.contentType('txt');
     res.sendFile(path.join(__dirname , '/robots.txt'));
 });
 
