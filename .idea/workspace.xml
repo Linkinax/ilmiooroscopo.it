@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c7b8e07b-c772-4a88-b9f0-5cd76b44d6b6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoScelto.html" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoScelto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/js/sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/js/sign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/js/signSettimanale.js" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/js/signSettimanale.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,19 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="oroscopoOdierno.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
+            <state relative-caret-position="345">
               <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -43,7 +31,7 @@
       <file leaf-file-name="SegnoScelto.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoScelto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1597">
+            <state relative-caret-position="1327">
               <caret line="142" column="12" lean-forward="true" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,12 +44,42 @@
       <file leaf-file-name="SegnoSceltoSettimanale.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoSceltoSettimanale.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="788">
+            <state relative-caret-position="68">
               <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-712" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/contact.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="96" column="47" lean-forward="true" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -84,17 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-772" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oroscopoSettimanale.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="oroscopoSettimanale.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="225">
               <caret line="78" column="67" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -118,6 +129,8 @@
         <option value="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoSceltoSettimanale.html" />
         <option value="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html" />
         <option value="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html" />
+        <option value="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/index.html" />
+        <option value="$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html" />
       </list>
     </option>
   </component>
@@ -160,7 +173,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="projectSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -268,11 +281,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-772" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -294,9 +302,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoScelto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1597">
+        <state relative-caret-position="1327">
           <caret line="142" column="12" lean-forward="true" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -305,9 +323,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="78" column="67" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/SegnoSceltoSettimanale.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
+        <state relative-caret-position="68">
           <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -316,23 +344,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoOdierno.html">
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-712" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/contact.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="96" column="47" lean-forward="true" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/oroscopoSettimanale.html">
+    <entry file="file://$PROJECT_DIR$/startbootstrap-clean-blog-gh-pages/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="78" column="67" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
         </state>
       </provider>
     </entry>
