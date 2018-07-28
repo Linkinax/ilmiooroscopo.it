@@ -1,2 +1,21 @@
-User-agent: *
-Allow: /
+User-Agent:*
+Disallow:
+
+sitemap: http://www.ilmiooroscopo.it/sitemap.xml
+User-agent: Yandex
+Crawl-Delay: 20
+
+User-agent: Google
+Crawl-Delay: 20
+
+User-agent: Yahoo
+Crawl-Delay: 20
+
+User-agent: baidu
+Crawl-Delay: 20
+
+User-Agent: MJ12bot
+Crawl-Delay: 20
+
+User-Agent: bingbot
+Crawl-Delay: 20
