@@ -19,6 +19,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // /* Register REST entry point */
+
+app.get('/sitemap.xml', function(req, res){
+    res.contentType('application/xml');
+    res.sendFile(path.join(__dirname , '/sitemap.xml'));
+});
+
 app.get("/oroscopoOdierno/:id", function(req, res) {
   var ID = req.params.id;
   //Storing data:
