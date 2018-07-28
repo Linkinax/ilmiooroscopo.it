@@ -51,6 +51,39 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
     });
 });
 
+app.get("/oroscopoSettimanale/:id", function(req, res) {
+  var ID = req.params.id;
+  //Storing data:
+    myObj = {};
+    myJSON = JSON.stringify(myObj);
+
+  const options = {
+    uri: "https://oroscopo.sky.it/oroscopo/settimana/"+ ID+".html",
+    transform: function (body) {
+          return cheerio.load(body);
+        }
+      };
+      rp(options)
+          .then(($) => {
+
+            var megaDiv= $('.c-multi-tab__tab-body.j-tabs-tab0.is-active');
+
+            console.log(megaDiv.html());
+
+            myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
+            myObj["Segno"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > b").text());
+            myObj["Generale"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(1).text());
+            myObj["Amore"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(2).text());
+            myObj["Lavoro"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(3).text());
+
+            res.send(myObj);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+
+
 
 // app.use(function(req, res) {
 //   res.status(400);
