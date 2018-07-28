@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const sqlDbFactory = require("knex");
 const process = require("process");
+const path = require('path');
 
 const rp = require('request-promise');
 const cheerio = require('cheerio');
