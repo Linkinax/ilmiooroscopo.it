@@ -25,6 +25,10 @@ app.get('/sitemap.xml', function(req, res){
     res.contentType('application/xml');
     res.sendFile(path.join(__dirname , '/sitemap.xml'));
 });
+app.get('/robots.txt', function(req, res){
+    res.contentType('application/xml');
+    res.sendFile(path.join(__dirname , '/robots.txt'));
+});
 
 app.get("/oroscopoOdierno/:id", function(req, res) {
   var ID = req.params.id;
