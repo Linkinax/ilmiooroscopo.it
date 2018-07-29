@@ -10,3 +10,17 @@
 #SpazioSottoTitolo{
     padding-bottom: 12.5px;
 }
+#linkAffiliato{
+        color: #ff7a00;
+        text-decoration-line: underline;
+}
+#Risorsa{
+    font-size: 14px;
+    margin-bottom: 99px;
+}
+#ImgRisorsa{
+    
+    float:left;
+    padding-right: 12.5px;
+    
+}

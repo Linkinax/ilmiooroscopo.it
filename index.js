@@ -91,7 +91,64 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
           });
       });
 
+      app.get("/affiliateMarketing/:params", function(req, res) {
+        var ID =  req.params.id;
+        var link = req.query.link;
+        console.log(link);
+        //Storing data:
+          myObj = {};
+          myJSON = JSON.stringify(myObj);
+          myObj["posts"] = [];
 
+          var tumblr = require('tumblr.js');
+
+          var clientMemes = tumblr.createClient({
+              consumer_key: 'gn1tWsZ5Wq3tyOdZbKoOLHrUhlYwAnXqDjEeLRtwjGuCu1LKh2',
+              consumer_secret: 'vcIKu8qrHl8uguTgjkbGuwaQiVDajMfY3zi1u7AJXcUzlDVxiU',
+              token: 'dC00e6YQxlwWT37Lm8A8ZIx1VpwHoVcTbCAHlinpptluI6R8YT',
+              token_secret: '6gMoqbosWaQCfK1c56CPvCNmMyyFtZkZjKrDuUDNig4Bd10Vsw'
+              });
+        const options = {
+          uri: link,
+          transform: function (body) {
+            return cheerio.load(body);
+          }
+        };
+        rp(options)
+          .then(($) => {
+
+
+            var reblogBtn= $('.control.reblog-control');
+            var urlz = "https://www.tumblr.com/reblog/176258039384/q0n3w6v8";
+
+            for(var i=0;i< 5;i++)
+            {
+              var roba= urlz.split("reblog/")[1];
+              //console.log("i= "+ i +"\t"+($("img").eq(i).attr("src")));
+              var item = { "id" : urlz.split("reblog/")[1].split("/")[0],
+                            "reblogKey" : urlz.split("reblog/")[1].split("/")[1],
+                           "tags" : "chic, tee, tshirt, fashion, deal, clothes, hoodie"};
+              myObj["posts"].push(item);
+
+
+
+            }
+            clientMemes.reblogPost("memesforages.tumblr.com", params = { "id": myObj["posts"][0].id,
+                                                                          "reblog_key": myObj["posts"][0].reblogKey,
+                                                                          "tags":  myObj["posts"][0].tags
+                                                                        } ,
+                                  function(err, data){
+                                    console.log("Posted: \t" + myObj["posts"][0].id);
+                                  });
+            res.send(myObj);
+
+
+            
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
 
 // app.use(function(req, res) {
 //   res.status(400);
