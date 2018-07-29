@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const sqlDbFactory = require("knex");
 const process = require("process");
 const path = require('path');
-
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const _ = require("lodash");
@@ -102,9 +101,18 @@ app.get("/tumblrQueue/", function(req, res) {
   //Storing data:
     myObj = {};
     myJSON = JSON.stringify(myObj);
+    myObj["posts"] = [];
+    var tumblr = require('tumblr.js');
+
+    var clientMemes = tumblr.createClient({
+        consumer_key: 'gn1tWsZ5Wq3tyOdZbKoOLHrUhlYwAnXqDjEeLRtwjGuCu1LKh2',
+        consumer_secret: 'vcIKu8qrHl8uguTgjkbGuwaQiVDajMfY3zi1u7AJXcUzlDVxiU',
+        token: 'dC00e6YQxlwWT37Lm8A8ZIx1VpwHoVcTbCAHlinpptluI6R8YT',
+        token_secret: '6gMoqbosWaQCfK1c56CPvCNmMyyFtZkZjKrDuUDNig4Bd10Vsw'
+        });
 
   const options = {
-    uri: "https://imgur.com/search?q=memes",
+    uri: "https://imgur.com/search/time?q=memes&qs=thumbs",
     transform: function (body) {
       return cheerio.load(body);
     }
@@ -112,17 +120,26 @@ app.get("/tumblrQueue/", function(req, res) {
   rp(options)
     .then(($) => {
       var megaDiv= $('.cards');
-      console.log(megaDiv.html());
+      for(var i=0;i< 60;i++)
+      {
+        var listaUrl= ($("img").eq(i).attr("src"));
+        //console.log("i= "+ i +"\t"+($("img").eq(i).attr("src")));
+        var item = { "url" : ($("img").eq(i).attr("src")),
+                      "title" : ($("p").eq(i).text()),
+                     "tags" : "meme funny, funny picture, dank meme, funny"};
+        myObj["posts"].push(item);
 
-      var listaUrl= ($(".cards.post > img").getAttr("src"));
-      console.log(listaUrl);
-      /*
-      myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
-      myObj["Segno"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > b").text());
-      myObj["Generale"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(1).text());
-      myObj["Amore"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(2).text());
-      myObj["Lavoro"] = ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p \n\n").eq(3).text());
-      */
+        clientMemes.createPost("memesforages.tumblr.com", params = { "type": "photo",
+                                                                      "state": "queue",
+                                                                    "caption": myObj["posts"][i].title,
+                                                                   "source": myObj["posts"][i].url,
+                                                                   "tags" : myObj["posts"][i].tags} ,
+                              function(err, data){
+                                console.log("Posted: \t" + myObj["posts"][i].title);
+                              });
+                                                                   ;
+
+      }
       res.send(myObj);
     })
     .catch((err) => {
