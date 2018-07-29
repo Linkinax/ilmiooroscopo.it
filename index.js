@@ -114,7 +114,7 @@ app.get("/tumblrQueue/", function(req, res) {
       var megaDiv= $('.cards');
       console.log(megaDiv.html());
 
-      var listaUrl= ($(".cards.post > img").getAttr("src");
+      var listaUrl= ($(".cards.post > img").getAttr("src"));
       console.log(listaUrl);
       /*
       myObj["Data"]= ($(".c-multi-tab__tab-body.j-tabs-tab0.is-active > p:first-child \n\n").text());
