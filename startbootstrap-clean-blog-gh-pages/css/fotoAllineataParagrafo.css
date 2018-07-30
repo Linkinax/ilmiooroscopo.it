@@ -24,3 +24,18 @@
     padding-right: 12.5px;
     
 }
+
+@media (min-width: 320px) and (max-width: 374px){ 
+    img {height: 15%;
+         width: 55%;}
+        
+}
+@media (min-width: 375px) and (max-width: 424px){ 
+    img {height: 17%;
+         width: 60%;}
+ 
+    
+}
+@media (min-width: 425px) and (max-width: 767px){ 
+       img {height: 17%;
+         width: 60%;}
