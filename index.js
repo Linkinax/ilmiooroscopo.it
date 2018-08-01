@@ -172,7 +172,7 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
 
 
                 clientMemes.reblogPost("memesforages.tumblr.com", params = { "id": temp[i].id,
-                                                                              "state": "queue",
+                                                                              "state": "queued",
                                                                               "reblog_key": temp[i].reblogKey,
                                                                               "tags":  temp[i].tags
                                                                             } ,

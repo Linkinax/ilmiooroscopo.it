@@ -12,7 +12,11 @@
 }
 #linkAffiliato{
         color: #ff7a00;
-        text-decoration-line: underline;
+        
+}
+#linkAffiliato:hover{
+    color: #0085a1;
+    text-decoration-line: underline;
 }
 #Risorsa{
     font-size: 14px;
