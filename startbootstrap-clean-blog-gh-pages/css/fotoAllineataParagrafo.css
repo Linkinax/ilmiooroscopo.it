@@ -16,12 +16,14 @@
 }
 #Risorsa{
     font-size: 14px;
-    margin-bottom: 160px;
+    margin-bottom: 100px;
 }
 #ImgRisorsa{
     
     float:left;
     padding-right: 12.5px;
+    width: 100px;
+    height: 120px;
     
 }
 
