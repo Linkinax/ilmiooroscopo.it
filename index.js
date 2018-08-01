@@ -119,20 +119,71 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
 
 
             var reblogBtn= $('.control.reblog-control');
+            var dembtns = [
+              "https://www.tumblr.com/reblog/176509328817/h2QMYVwe",
+"https://www.tumblr.com/reblog/176509325472/VfxZfI2K",
+"https://www.tumblr.com/reblog/176509322607/rl1jOaaw",
+"https://www.tumblr.com/reblog/176509319697/7I6N8xgo",
+"https://www.tumblr.com/reblog/176509317232/E11B1D9M",
+"https://www.tumblr.com/reblog/176509340922/5BKYhmdR",
+"https://www.tumblr.com/reblog/176509339562/UYiD1vzT",
+"https://www.tumblr.com/reblog/176509336097/nAZw5nMj",
+"https://www.tumblr.com/reblog/176509334137/twK1TF1S",
+"https://www.tumblr.com/reblog/176509331317/xmf8YJCZ",
+"https://www.tumblr.com/reblog/176509449662/UEr4fi2s",
+"https://www.tumblr.com/reblog/176509445487/VtsRWdce",
+"https://www.tumblr.com/reblog/176509443307/CqqgDe4j",
+"https://www.tumblr.com/reblog/176509440862/NqtSKqvR",
+"https://www.tumblr.com/reblog/176509438297/RMxQPgeM",
+"https://www.tumblr.com/reblog/176509463352/KRYaiM0c",
+"https://www.tumblr.com/reblog/176509460492/6E2Xs64O",
+"https://www.tumblr.com/reblog/176509458482/PzqAmyBy",
+"https://www.tumblr.com/reblog/176509455027/RW6hl3AW",
+"https://www.tumblr.com/reblog/176509452827/pm3fgWYD",
+"https://www.tumblr.com/reblog/176509584602/pdDRlsDY",
+"https://www.tumblr.com/reblog/176509581842/ZUwIrEeo",
+"https://www.tumblr.com/reblog/176509579437/w3mbqOEg",
+"https://www.tumblr.com/reblog/176509576737/9Rvvnhid",
+"https://www.tumblr.com/reblog/176509574117/VK9V2fb1",
+"https://www.tumblr.com/reblog/176509599282/IEbLZcYM",
+"https://www.tumblr.com/reblog/176509595797/cSa6mrWo",
+"https://www.tumblr.com/reblog/176509593132/8CYGU3KN",
+"https://www.tumblr.com/reblog/176509590642/XKmTHIEq",
+"https://www.tumblr.com/reblog/176509588087/RaeyBt7E",
+"https://www.tumblr.com/reblog/176509617882/6ujnYgXO",
+"https://www.tumblr.com/reblog/176509611237/Qx6p5TuK",
+"https://www.tumblr.com/reblog/176509607932/kFdg9EEJ",
+"https://www.tumblr.com/reblog/176509604687/v1QOibPr",
+"https://www.tumblr.com/reblog/176509602217/PCVQlgk2",
+
+            ]
             var urlz = "https://www.tumblr.com/reblog/176258039384/q0n3w6v8";
 
-            for(var i=0;i< 5;i++)
+            for(var i=0;i< 35;i++)
             {
-              var roba= urlz.split("reblog/")[1];
+              var roba= dembtns[i].split("reblog/")[1];
               //console.log("i= "+ i +"\t"+($("img").eq(i).attr("src")));
-              var item = { "id" : urlz.split("reblog/")[1].split("/")[0],
-                            "reblogKey" : urlz.split("reblog/")[1].split("/")[1],
+              var item = { "id" : dembtns[i].split("reblog/")[1].split("/")[0],
+                            "reblogKey" : dembtns[i].split("reblog/")[1].split("/")[1],
                            "tags" : "chic, tee, tshirt, fashion, deal, clothes, hoodie"};
               myObj["posts"].push(item);
+              var temp = myObj["posts"];
+                console.log("Posted: \t" + temp[i].id);
 
+
+                clientMemes.reblogPost("memesforages.tumblr.com", params = { "id": temp[i].id,
+                                                                              "state": "queue",
+                                                                              "reblog_key": temp[i].reblogKey,
+                                                                              "tags":  temp[i].tags
+                                                                            } ,
+                                      function(err, data){
+
+                                        console.log("Posted: \n");
+                                      })
 
 
             }
+            /*
             clientMemes.reblogPost("memesforages.tumblr.com", params = { "id": myObj["posts"][0].id,
                                                                           "reblog_key": myObj["posts"][0].reblogKey,
                                                                           "tags":  myObj["posts"][0].tags
@@ -140,10 +191,11 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
                                   function(err, data){
                                     console.log("Posted: \t" + myObj["posts"][0].id);
                                   });
+                                  */
             res.send(myObj);
 
 
-            
+
                 })
                 .catch((err) => {
                   console.log(err);
