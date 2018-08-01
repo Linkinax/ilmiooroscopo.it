@@ -31,6 +31,39 @@
     
 }
 
+#PortaleSx{
+    float: left;
+    background-color: #bfc8ea;
+    margin: 20px;
+  text-align: center;
+    
+}
+#PortaleDx{
+    float: right;
+    background-color: #bfc8ea;
+    margin :20px;
+    text-align: center;
+    text-decoration-style: wavy;
+   
+}
+#PortaleSx:hover{
+    float: left;
+    background-color: #bfc8ea;
+    margin: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+#PortaleDx:hover{
+    float: left;
+    background-color: #bfc8ea;
+    margin: 20px;
+    text-align: center;
+    font-size: 1.1em;   
+}
+#zoominFont:hover{
+    font-size: 1.2em; 
+}
+
 @media (min-width: 320px) and (max-width: 374px){ 
     img {height: 15%;
          width: 55%;}
