@@ -256,6 +256,60 @@ app.get("/tumblrQueue/", function(req, res) {
     });
 });
 
+app.get("/tumblrAwwQueue/", function(req, res) {
+  //Storing data:
+    myObj = {};
+    myJSON = JSON.stringify(myObj);
+    myObj["posts"] = [];
+    var tumblr = require('tumblr.js');
+
+    var clientMemes = tumblr.createClient({
+        consumer_key: 'fIJI5esiBwbsttsdd6QhPSB4GvNXMlwzkSAq43efSH8ri9cpQ9',
+        consumer_secret: 'Z4ce5s0NCGsvBOYcW5TrLKYkrDjt0Qodd6XHBzuvnzA0PolBXi',
+        token: 'i0YJqjj5plA4GN906vuirucDdLFO1uief2jKPbDVQAB6oiwzFd',
+        token_secret: '4uqPSXZHaz15WuSK03lETB8QLUhqf9LvqZhjvetwIKPNSRXG0D'
+        });
+
+  const options = {
+    uri: "https://imgur.com/search/score/day?q=aww&qs=thumbs",
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+  rp(options)
+    .then(($) => {
+      var megaDiv= $('.cards');
+      for(var i=0;i< 60;i++)
+      {
+        var listaUrl= ($("img").eq(i).attr("src"));
+        //console.log("i= "+ i +"\t"+($("img").eq(i).attr("src")));
+        var item = { "url" : ($("img").eq(i).attr("src")),
+                      "title" : ($("p").eq(i).text()),
+                     "tags" : "aww, adorable, cute, funny"};
+        myObj["posts"].push(item);
+
+        clientMemes.createPost("memesforages.tumblr.com", params = { "type": "photo",
+                                                                      "state": "queue",
+                                                                    "caption": myObj["posts"][i].title,
+                                                                   "source": myObj["posts"][i].url,
+                                                                   "tags" : myObj["posts"][i].tags} ,
+                              function(err, data){
+                                console.log("Posted: \t" + myObj["posts"][i].title);
+                              });
+                                                                   ;
+
+      }
+      res.send(myObj);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
+app.post("/IG", function(req, res) {
+  res.send(req.body)
+});
 app.set("port", serverPort);
 
 
