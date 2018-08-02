@@ -308,7 +308,25 @@ app.get("/tumblrAwwQueue/", function(req, res) {
 
 
 app.post("/IG", function(req, res) {
-  res.send(req.body)
+  const Instagram = require('node-instagram').default;
+
+  const instagram = new Instagram({
+  clientId: 'eec12834238d4026bb24be06572ba217',
+  clientSecret: '91ee89b007c6495da97bafa4e7695bcd',
+  accessToken: '7340518952.eec1283.3fd83ce86fc34b7a8734e4b7ab6b663d',
+});
+instagram.get('users/self', (err, data) => {
+  if (err) {
+    // an error occured
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+
+
+
+  res.send("osregheta")
 });
 app.set("port", serverPort);
 
