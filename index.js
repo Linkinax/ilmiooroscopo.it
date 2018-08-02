@@ -307,7 +307,7 @@ app.get("/tumblrAwwQueue/", function(req, res) {
 });
 
 
-app.post("/IG", function(req, res) {
+app.get("/IG", function(req, res) {
   const Instagram = require('node-instagram').default;
 
   const instagram = new Instagram({
