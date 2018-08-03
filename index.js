@@ -307,27 +307,32 @@ app.get("/tumblrAwwQueue/", function(req, res) {
 });
 
 
-app.get("/IG", function(req, res) {
-  const Instagram = require('node-instagram').default;
 
-  const instagram = new Instagram({
-  clientId: 'eec12834238d4026bb24be06572ba217',
-  clientSecret: '91ee89b007c6495da97bafa4e7695bcd',
-  accessToken: '7340518952.eec1283.3fd83ce86fc34b7a8734e4b7ab6b663d',
-});
-instagram.get('users/self', (err, data) => {
-  if (err) {
-    // an error occured
-    console.log(err);
-  } else {
-    console.log(data);
-  }
-});
 
+app.get("/IG/:id", function(req, res) {
+  var Client = require('instagram-private-api').V1;
+var device = new Client.Device('unsaid.citations');
+var storage = new Client.CookieFileStorage(__dirname + '/cookies/unsaid.cit.json');
+
+Client.Session.create(device, storage, 'unsaid.citations', "verdesmeraldo")
+    .then(function(session) {
+Client.Upload.photo(session, 'http://www.imagefully.com/wp-content/uploads/2015/07/Hello-There-Calender-Picture.png')
+    .then(function(upload) {
+        // upload instanceof Client.Upload
+        // nothing more than just keeping upload id
+        console.log(upload.params.uploadId);
+        return Client.Media.configurePhoto(session, upload.params.uploadId, 'Hello there');
+    })
+    .then(function(medium) {
+        // we configure medium, it is now visible with caption
+        console.log(medium.params)
+    })
+  })
 
 
   res.send("osregheta")
 });
+
 app.set("port", serverPort);
 
 
