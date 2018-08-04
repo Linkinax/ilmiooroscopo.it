@@ -288,8 +288,8 @@ app.get("/tumblrAwwQueue/", function(req, res) {
                      "tags" : "aww, adorable, cute, funny"};
         myObj["posts"].push(item);
 
-        clientMemes.createPost("memesforages.tumblr.com", params = { "type": "photo",
-                                                                      "state": "queue",
+        clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
+                                                                      "state": "queued",
                                                                     "caption": myObj["posts"][i].title,
                                                                    "source": myObj["posts"][i].url,
                                                                    "tags" : myObj["posts"][i].tags} ,
@@ -310,27 +310,31 @@ app.get("/tumblrAwwQueue/", function(req, res) {
 
 
 app.get("/IG/:id", function(req, res) {
-  var Client = require('instagram-private-api').V1;
-var device = new Client.Device('unsaid.citations');
-var storage = new Client.CookieFileStorage(__dirname + '/cookies/unsaid.cit.json');
+  const Instagram = require('instagram-web-api');
+  const { username, password } = process.env;
 
-Client.Session.create(device, storage, 'unsaid.citations', "verdesmeraldo")
-    .then(function(session) {
-Client.Upload.photo(session, 'http://www.imagefully.com/wp-content/uploads/2015/07/Hello-There-Calender-Picture.png')
-    .then(function(upload) {
-        // upload instanceof Client.Upload
-        // nothing more than just keeping upload id
-        console.log(upload.params.uploadId);
-        return Client.Media.configurePhoto(session, upload.params.uploadId, 'Hello there');
-    })
-    .then(function(medium) {
-        // we configure medium, it is now visible with caption
-        console.log(medium.params)
-    })
-  })
+  const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo" });
+  console.log(client);
+
+  (async () => {
+    // URL or path of photo
+    const photo =
+      'http://www.imagefully.com/wp-content/uploads/2015/07/Hello-There-Calender-Picture.png';
+      const feed = await client.getHome();
+      console.log("ORCO"+feed);
+    await client.login({ username: 'unsaid.citations', password: 'verdesmeraldo' })
+      .then((e)=> {console.log(e)});
+
+    // Upload Photo
+    const { media } = await client.uploadPhoto(photo);
+    console.log(`https://www.instagram.com/p/${media.code}/`);
+  })().catch((err)=> {console.log(err);})
 
 
-  res.send("osregheta")
+
+
+
+  //res.send("osregheta")
 });
 
 app.set("port", serverPort);
