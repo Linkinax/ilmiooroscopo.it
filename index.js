@@ -221,7 +221,7 @@ app.get("/tumblrQueue/", function(req, res) {
         });
 
   const options = {
-    uri: "https://imgur.com/search/time?q=memes&qs=thumbs",
+    uri: "https://imgur.com/search/score/day?q=memes&qs=thumbs",
     transform: function (body) {
       return cheerio.load(body);
     }
@@ -289,12 +289,12 @@ app.get("/tumblrAwwQueue/", function(req, res) {
         myObj["posts"].push(item);
 
         clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
-                                                                      "state": "queued",
+                                                                      "state": "queue",
                                                                     "caption": myObj["posts"][i].title,
                                                                    "source": myObj["posts"][i].url,
                                                                    "tags" : myObj["posts"][i].tags} ,
                               function(err, data){
-                                console.log("Posted: \t" + myObj["posts"][i].title);
+                                console.log("Posted: \t" + data);
                               });
                                                                    ;
 
