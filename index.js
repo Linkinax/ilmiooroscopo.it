@@ -28,6 +28,10 @@ app.get('/robots.txt', function(req, res){
     res.contentType('txt');
     res.sendFile(path.join(__dirname , '/robots.txt'));
 });
+app.get('/xd.JPEG', function(req, res){
+    res.contentType('JPEG');
+    res.sendFile(path.join(__dirname , '/xd.JPEG'));
+});
 
 app.get("/oroscopoOdierno/:id", function(req, res) {
   var ID = req.params.id;
@@ -326,7 +330,14 @@ app.get("/IG/:id", function(req, res) {
             .then(() => {
                   client
                       .getProfile()
-                          .then(console.log)
+                          .then(()=>{
+                            //console.log
+                            (async()=>{
+                              const photo ='xd.JPEG'
+                            const { media } = await client.uploadPhoto(photo)
+                            console.log(`https://www.instagram.com/p/${media.code}/`)})()
+
+                          })
                           })
             } catch (e) {
 
