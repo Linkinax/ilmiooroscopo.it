@@ -317,12 +317,17 @@ app.get("/IG/:id", function(req, res) {
 
   const cookieStore = new FileCookieStore('cookies.json')
   const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo", cookieStore });
-  console.log(client);
+  //console.log(client);
 
   (async () => {
     try {
-            console.log("LOGGO")
+            console.log("Provo madonna vacca");
             await client.login()
+            .then(() => {
+                  client
+                      .getProfile()
+                          .then(console.log)
+                          })
             } catch (e) {
 
                 console.log(e.message)
@@ -336,13 +341,7 @@ app.get("/IG/:id", function(req, res) {
                     const challengeUrl = errorObj.checkpoint_url.toString()
                     await client.updateChallenge({ challengeUrl, choice: 0 })
                     await client.updateChallenge({ challengeUrl, securityCode: 386204  })
-                    console.log("IN teoria ha fatto qualcosa!");
-                    const wtfHappened= await client.login()
-                    .then(() => {
-                          client
-                              .getProfile()
-                                  .then(console.log)
-                                  })
+
                     //console.log(wtfHappened);
 
                   }
