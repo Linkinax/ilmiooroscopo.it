@@ -330,14 +330,15 @@ app.get("/IG/:id", function(req, res) {
             .then(() => {
                   client
                       .getProfile()
-                          .then(()=>{
-                            //console.log
-                            (async()=>{
-                              const photo ='xd.JPEG'
-                            const { media } = await client.uploadPhoto(photo)
-                            console.log(`https://www.instagram.com/p/${media.code}/`)})()
-
+                          .then( (data)=>{
+                            console.log(data);
+                            console.log("LOLL");
+                            const photo = 'https://thumbs.dreamstime.com/z/hi-there-lettering-handwritten-brush-calligraphy-text-speech-bubble-vector-illustration-white-isolated-background-99277127.jpg'
+                                client
+                                    .uploadPhoto({ photo, caption: 'Hola!' })
+                                          .then(console.log("we fuckin did it man"))
                           })
+
                           })
             } catch (e) {
 
@@ -356,10 +357,24 @@ app.get("/IG/:id", function(req, res) {
                     //console.log(wtfHappened);
 
                   }
-
                   //await client.login()
                 }}) ()
+(async () => {
+                try {
+                        console.log("Provo a postare la foto");
+                        await client.login()
+                        .then(() => {
+                          const photo = 'https://thumbs.dreamstime.com/z/hi-there-lettering-handwritten-brush-calligraphy-text-speech-bubble-vector-illustration-white-isolated-background-99277127.jpg'
+                              client
+                                  .uploadPhoto({ photo, caption: 'Hola!' })
+                                        .then(console.log("we fuckin did it man"))
 
+
+                                      })
+                        } catch (e) {
+
+                            console.log(e.message)
+                  }})()
 
 
 
