@@ -120,41 +120,41 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
 
             var reblogBtn= $('.control.reblog-control');
             var dembtns = [
-              "https://www.tumblr.com/reblog/176509328817/h2QMYVwe",
-"https://www.tumblr.com/reblog/176509325472/VfxZfI2K",
-"https://www.tumblr.com/reblog/176509322607/rl1jOaaw",
-"https://www.tumblr.com/reblog/176509319697/7I6N8xgo",
-"https://www.tumblr.com/reblog/176509317232/E11B1D9M",
-"https://www.tumblr.com/reblog/176509340922/5BKYhmdR",
-"https://www.tumblr.com/reblog/176509339562/UYiD1vzT",
-"https://www.tumblr.com/reblog/176509336097/nAZw5nMj",
-"https://www.tumblr.com/reblog/176509334137/twK1TF1S",
-"https://www.tumblr.com/reblog/176509331317/xmf8YJCZ",
-"https://www.tumblr.com/reblog/176509449662/UEr4fi2s",
-"https://www.tumblr.com/reblog/176509445487/VtsRWdce",
-"https://www.tumblr.com/reblog/176509443307/CqqgDe4j",
-"https://www.tumblr.com/reblog/176509440862/NqtSKqvR",
-"https://www.tumblr.com/reblog/176509438297/RMxQPgeM",
-"https://www.tumblr.com/reblog/176509463352/KRYaiM0c",
-"https://www.tumblr.com/reblog/176509460492/6E2Xs64O",
-"https://www.tumblr.com/reblog/176509458482/PzqAmyBy",
-"https://www.tumblr.com/reblog/176509455027/RW6hl3AW",
-"https://www.tumblr.com/reblog/176509452827/pm3fgWYD",
-"https://www.tumblr.com/reblog/176509584602/pdDRlsDY",
-"https://www.tumblr.com/reblog/176509581842/ZUwIrEeo",
-"https://www.tumblr.com/reblog/176509579437/w3mbqOEg",
-"https://www.tumblr.com/reblog/176509576737/9Rvvnhid",
-"https://www.tumblr.com/reblog/176509574117/VK9V2fb1",
-"https://www.tumblr.com/reblog/176509599282/IEbLZcYM",
-"https://www.tumblr.com/reblog/176509595797/cSa6mrWo",
-"https://www.tumblr.com/reblog/176509593132/8CYGU3KN",
-"https://www.tumblr.com/reblog/176509590642/XKmTHIEq",
-"https://www.tumblr.com/reblog/176509588087/RaeyBt7E",
-"https://www.tumblr.com/reblog/176509617882/6ujnYgXO",
-"https://www.tumblr.com/reblog/176509611237/Qx6p5TuK",
-"https://www.tumblr.com/reblog/176509607932/kFdg9EEJ",
-"https://www.tumblr.com/reblog/176509604687/v1QOibPr",
-"https://www.tumblr.com/reblog/176509602217/PCVQlgk2",
+              "https://www.tumblr.com/reblog/176687605289/mdhjF38I",
+"https://www.tumblr.com/reblog/176687585669/WwQwOuOu",
+"https://www.tumblr.com/reblog/176687568549/EiWyFu7p",
+"https://www.tumblr.com/reblog/176687553024/RpGby0O1",
+"https://www.tumblr.com/reblog/176687486754/7zuxlGp8",
+"https://www.tumblr.com/reblog/176687678839/w3mbqOEg",
+"https://www.tumblr.com/reblog/176687673794/7SS9ObIl",
+"https://www.tumblr.com/reblog/176687667134/ho1lJLtU",
+"https://www.tumblr.com/reblog/176687652329/Hd0WXuNV",
+"https://www.tumblr.com/reblog/176687646014/PzqAmyBy",
+"https://www.tumblr.com/reblog/176687715634/vWqsNcEa",
+"https://www.tumblr.com/reblog/176687710384/KngCf38o",
+"https://www.tumblr.com/reblog/176687705074/mEEhr7PI",
+"https://www.tumblr.com/reblog/176687697789/rw4P4S8p",
+"https://www.tumblr.com/reblog/176687692684/eA5N0i11",
+"https://www.tumblr.com/reblog/176687794619/GkemYe4u",
+"https://www.tumblr.com/reblog/176687790419/7I6N8xgo",
+"https://www.tumblr.com/reblog/176687785204/KRYaiM0c",
+"https://www.tumblr.com/reblog/176687780204/7JywDVxp",
+"https://www.tumblr.com/reblog/176687768739/P9X9ASVi",
+"https://www.tumblr.com/reblog/176687878489/tP3GOj0C",
+"https://www.tumblr.com/reblog/176687873529/vqNBCsbX",
+"https://www.tumblr.com/reblog/176687867529/UHlldp2a",
+"https://www.tumblr.com/reblog/176687812709/4QxYzG0o",
+"https://www.tumblr.com/reblog/176687808469/9Rvvnhid",
+"https://www.tumblr.com/reblog/176687923464/RaeyBt7E",
+"https://www.tumblr.com/reblog/176687915214/UEr4fi2s",
+"https://www.tumblr.com/reblog/176687909459/SSQVXbfJ",
+"https://www.tumblr.com/reblog/176687904634/cgd3cxc4",
+"https://www.tumblr.com/reblog/176687900419/SiZjQRAp",
+"https://www.tumblr.com/reblog/176688034699/8ClyOrNV",
+"https://www.tumblr.com/reblog/176688014059/tIyo1o8A",
+"https://www.tumblr.com/reblog/176688009499/dWQe8n8E",
+"https://www.tumblr.com/reblog/176688003834/H8Sa1Nev",
+"https://www.tumblr.com/reblog/176687998644/qXcAfnyS",
 
             ]
             var urlz = "https://www.tumblr.com/reblog/176258039384/q0n3w6v8";
@@ -172,7 +172,7 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
 
 
                 clientMemes.reblogPost("memesforages.tumblr.com", params = { "id": temp[i].id,
-                                                                              "state": "queued",
+                                                                              "state": "queue",
                                                                               "reblog_key": temp[i].reblogKey,
                                                                               "tags":  temp[i].tags
                                                                             } ,
@@ -311,30 +311,58 @@ app.get("/tumblrAwwQueue/", function(req, res) {
 
 app.get("/IG/:id", function(req, res) {
   const Instagram = require('instagram-web-api');
+  const FileCookieStore = require('tough-cookie-filestore2')
+
   const { username, password } = process.env;
 
-  const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo" });
+  const cookieStore = new FileCookieStore('cookies.json')
+  const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo", cookieStore });
   console.log(client);
 
   (async () => {
-    // URL or path of photo
-    const photo =
-      'http://www.imagefully.com/wp-content/uploads/2015/07/Hello-There-Calender-Picture.png';
-      const feed = await client.getHome();
-      console.log("ORCO"+feed);
-    await client.login({ username: 'unsaid.citations', password: 'verdesmeraldo' })
-      .then((e)=> {console.log(e)});
+    try {
+            console.log("LOGGO")
+            await client.login()
+            } catch (e) {
 
-    // Upload Photo
-    const { media } = await client.uploadPhoto(photo);
-    console.log(`https://www.instagram.com/p/${media.code}/`);
-  })().catch((err)=> {console.log(err);})
+                console.log(e.message)
+
+                if (e.message.includes('checkpoint_required')) {
+                    //send challengeId for UI change to be handled in login
+                    const errorObj = JSON.parse(e.message.replace('400 - ', ''))
+                    console.log(errorObj);
+                    const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url })
+                    console.log(challenge)
+                    const challengeUrl = errorObj.checkpoint_url.toString()
+                    await client.updateChallenge({ challengeUrl, choice: 0 })
+                    await client.updateChallenge({ challengeUrl, securityCode: 386204  })
+                    console.log("IN teoria ha fatto qualcosa!");
+                    const wtfHappened= await client.login()
+                    .then(() => {
+                          client
+                              .getProfile()
+                                  .then(console.log)
+                                  })
+                    //console.log(wtfHappened);
+
+                  }
+
+                  //await client.login()
+                }}) ()
 
 
 
 
 
-  //res.send("osregheta")
+
+
+
+
+
+
+
+
+  res.send("osregheta")
 });
 
 app.set("port", serverPort);
