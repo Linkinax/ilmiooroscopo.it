@@ -329,17 +329,15 @@ function scrivi (img){
 
 }
 app.get("/East", function(req, res) {
+  onst textToPicture = require('text-to-picture')
 
-  // open a file called "lenna.png"
-  var gm = require('gm');
-  gm('xd.JPEG')
-  .resize(1200,800)
-  .noProfile()
-  .font("Carlito-Regular.ttf", 12)
-  .drawText(30, 20, "GMagick!")
-  .write('resized.png', function (err) {
-  if (!err) console.log('done');
-});
+textToPicture.convert({
+  text: 'FUck me in the ass'
+}).then(result => {
+  return result.write("rcodio.jpeg", "so figo")
+}).then(str => {
+  console.log(str) // data:image/png;base64,iVBORw0KGgoA...
+}).catch(err => handle(err))
 
   res.send("Posted an image brosky");
 });
