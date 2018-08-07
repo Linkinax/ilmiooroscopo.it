@@ -310,6 +310,40 @@ app.get("/tumblrAwwQueue/", function(req, res) {
     });
 });
 
+function scrivi (img){
+  var Jimp = require('jimp');
+  Jimp.loadFont("Another Danger - Demo.otf").then(function(font) {
+    img.print(
+        font,
+        100,
+        100,
+        {
+            text: 'Hello world!',
+            alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+            alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+        },
+        1350,
+        1750
+    ); // prints 'Hello world!' on an image, middle and center-aligned
+});
+
+}
+app.get("/East", function(req, res) {
+
+  // open a file called "lenna.png"
+  var gm = require('gm');
+  gm('xd.JPEG')
+  .resize(1200,800)
+  .noProfile()
+  .font("Carlito-Regular.ttf", 12)
+  .drawText(30, 20, "GMagick!")
+  .write('resized.png', function (err) {
+  if (!err) console.log('done');
+});
+
+  res.send("Posted an image brosky");
+});
+
 
 
 
@@ -338,7 +372,6 @@ app.get("/IG/:id", function(req, res) {
                                     .uploadPhoto({ photo, caption: 'Hola!' })
                                           .then(console.log("we fuckin did it man"))
                           })
-
                           })
             } catch (e) {
 
@@ -376,18 +409,7 @@ app.get("/IG/:id", function(req, res) {
                             console.log(e.message)
                   }})()
 
-
-
-
-
-
-
-
-
-
-
-
-  res.send("osregheta")
+  res.send("Posted an image brosky")
 });
 
 app.set("port", serverPort);
