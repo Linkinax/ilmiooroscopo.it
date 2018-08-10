@@ -245,7 +245,7 @@ app.get("/tumblrQueue/", function(req, res) {
         clientMemes.createPost("memesforages.tumblr.com", params = { "type": "photo",
                                                                       "state": "queue",
                                                                     "caption": myObj["posts"][i].title,
-                                                                   "source": myObj["posts"][i].url,
+                                                                   "source": myObj["posts"][i].url.replace("b.jpg", ".jpg"),
                                                                    "tags" : myObj["posts"][i].tags} ,
                               function(err, data){
                                 console.log("Posted: \t" + myObj["posts"][i].title);
@@ -295,7 +295,7 @@ app.get("/tumblrAwwQueue/", function(req, res) {
         clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
                                                                       "state": "queue",
                                                                     "caption": myObj["posts"][i].title,
-                                                                   "source": myObj["posts"][i].url,
+                                                                   "source": myObj["posts"][i].url.replace("b.jpg", ".jpg"),
                                                                    "tags" : myObj["posts"][i].tags} ,
                               function(err, data){
                                 console.log("Posted: \t" + data);
