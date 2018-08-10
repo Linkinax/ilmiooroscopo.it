@@ -329,15 +329,14 @@ function scrivi (img){
 
 }
 app.get("/East", function(req, res) {
-  onst textToPicture = require('text-to-picture')
-
-textToPicture.convert({
-  text: 'FUck me in the ass'
-}).then(result => {
-  return result.write("rcodio.jpeg", "so figo")
-}).then(str => {
-  console.log(str) // data:image/png;base64,iVBORw0KGgoA...
-}).catch(err => handle(err))
+  var gm = require("gm");
+  gm("xd.JPEG")
+    .region(100, 100, 50, 50)
+    .gravity('Center')
+    .fill("white")
+    .fontSize(14)
+    .font("Vega Style Personal Use.ttf")
+    .drawText(0, 0, 'This text will be centered inside the region')
 
   res.send("Posted an image brosky");
 });
