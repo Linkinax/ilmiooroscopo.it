@@ -383,11 +383,11 @@ function PostaInstagram(Caption, i)
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
                     console.log(errorObj);
-                    const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url })
-                    console.log(challenge)
-                    const challengeUrl = errorObj.checkpoint_url.toString()
-                    await client.updateChallenge({ challengeUrl, choice: 0 })
-                    await client.updateChallenge({ challengeUrl, securityCode: 926458  })
+                    const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url });
+                    console.log(challenge);
+                    const challengeUrl = errorObj.checkpoint_url.toString();
+                    await client.updateChallenge({ challengeUrl, choice: 0 });
+                    await client.updateChallenge({ challengeUrl, securityCode: 926458  });
 
                     //console.log(wtfHappened);
 
