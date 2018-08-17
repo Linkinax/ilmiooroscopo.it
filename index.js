@@ -425,7 +425,7 @@ function PostaInstagram(Caption, i)
 
 }
 app.get("/GenerateQuotes/:id", function(req, res) {
-  var ID = ParseInt(req.params.id);
+  var ID = parseInt(req.params.id);
 
     myObj = {};
     myJSON = JSON.stringify(myObj);
