@@ -310,66 +310,72 @@ app.get("/tumblrAwwQueue/", function(req, res) {
     });
 });
 
-function scrivi (img){
+function scrivi (corpoQuote, Author, num){
   var Jimp = require('jimp');
-  Jimp.loadFont("Another Danger - Demo.otf").then(function(font) {
-    img.print(
-        font,
-        100,
-        100,
-        {
-            text: 'Hello world!',
-            alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-            alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-        },
-        1350,
-        1750
-    ); // prints 'Hello world!' on an image, middle and center-aligned
-});
+  Jimp.read("cool.jpg")
+  .then( img => {
+    Jimp.loadFont(Jimp.FONT_SANS_128_BLACK).then(function(font) {
+      img.print(
+          font,
+          120,
+          10,
+          {
+              text : corpoQuote+ " -"+ Author,
+              alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+              alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+          },
+          1750,
+          1415
+      );
+      img.write("dIoCanaglia"+ num.toString()+ ".jpg"); // prints 'Hello world!' on an image, middle and center-aligned
+  });
+
+
+  })
+}
+
+function OverriteThatCookie()
+{
+  fs = require('fs')
+  fs.writeFile("cookies.json", "{\"www.instagram.com\" : {\"/\" : {\" \" : {\"hostOnly \":true,\"domain\" : \"www.instagram.com\",\"value\" : \"ig_cb=1\",\"pathIsDefault\" : true,\"path\" : \"/\"}}}}"
+              ,(err) => {
+  if (err) throw err;
+  console.log('The file has been saved!');
+})
 
 }
-app.get("/East", function(req, res) {
-  var gm = require("gm");
-  gm("xd.JPEG")
-    .region(100, 100, 50, 50)
-    .gravity('Center')
-    .fill("white")
-    .fontSize(14)
-    .font("Vega Style Personal Use.ttf")
-    .drawText(0, 0, 'This text will be centered inside the region')
-
-  res.send("Posted an image brosky");
-});
-
-
-
-
-app.get("/IG/:id", function(req, res) {
+function PostaInstagram(Caption, i)
+{
   const Instagram = require('instagram-web-api');
   const FileCookieStore = require('tough-cookie-filestore2')
-
   const { username, password } = process.env;
-
   const cookieStore = new FileCookieStore('cookies.json')
   const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo", cookieStore });
-  //console.log(client);
-
+  const photo = 'dIoCanaglia'+ i.toString()+'.jpg';
   (async () => {
     try {
             console.log("Provo madonna vacca");
             await client.login()
             .then(() => {
-                  client
-                      .getProfile()
+                  client.getProfile()
                           .then( (data)=>{
-                            console.log(data);
-                            console.log("LOLL");
-                            const photo = 'https://thumbs.dreamstime.com/z/hi-there-lettering-handwritten-brush-calligraphy-text-speech-bubble-vector-illustration-white-isolated-background-99277127.jpg'
-                                client
-                                    .uploadPhoto({ photo, caption: 'Hola!' })
-                                          .then(console.log("we fuckin did it man"))
-                          })
-                          })
+                            console.log("^ Get Profile ha workato!");
+                            (async () => {
+                               await client.uploadPhoto({ photo, caption: Caption })
+                                   console.log("we fuckin did it man, #photoUploaded! tempo di commentare");
+                                   const test = await client.getUserByUsername({ username: 'unsaid.citations' });
+                                   const media = await client.getMediaByShortcode({ shortcode: test.edge_owner_to_timeline_media.edges[0].node.shortcode });
+                                   console.log(media);
+                                     await client.addComment({ mediaId: media.id, text: '#quote #like4like #l4l #instaquote #inspirationalquotes #life #quotestoliveby #quotesaboutlife #instagramquote #positive #amen #cit #words #mindset #love #facts #passion #sayings #lovequotes #quoteoftheday #relatable #accurate #instagood #' + Caption.split("-- ")[1].replace(" ", "")})
+                                     .then(() =>{
+                                       console.log("Orcamadonna se ho commentato")
+                                     })
+                                     .catch(e => {console.log(e)})
+                                   })();
+                                 })();
+                               })
+                               .catch(e => {console.log(e)})
+
             } catch (e) {
 
                 console.log(e.message)
@@ -388,25 +394,79 @@ app.get("/IG/:id", function(req, res) {
 
                   }
                   //await client.login()
-                }}) ()
-(async () => {
+                }})();
+/*(async () => {
                 try {
                         console.log("Provo a postare la foto");
                         await client.login()
                         .then(() => {
-                          const photo = 'https://thumbs.dreamstime.com/z/hi-there-lettering-handwritten-brush-calligraphy-text-speech-bubble-vector-illustration-white-isolated-background-99277127.jpg'
-                              client
-                                  .uploadPhoto({ photo, caption: 'Hola!' })
-                                        .then(console.log("we fuckin did it man"))
+                          const photo = 'dIoCanaglia'+ i.toString()+ '.jpg'
+                          (async () => {
 
+                            const { media } = await client.uploadPhoto({ photo, caption: Caption })
+                                          .then(() => {
+                                            console.log("we fuckin did it man, tempo di commentare")
+                                            console.log(`HUEHUEHUE:\thttps://www.instagram.com/p/${media.code}/`)
+                                            (async () => {
+
+                                              await client.addComment({ mediaId: media.code, text: '#quote #like4like #l4l #instaquote #inspirationalquotes #life #quotestoliveby #quotesaboutlife #instagramquote #positive #amen #cit #words #mindset #love #facts #passion #sayings #lovequotes #quoteoftheday #relatable #accurate #instagood #' + Caption.split("--")[1]})
+
+
+                                            })()
+                                        })
+                          })()
 
                                       })
                         } catch (e) {
 
                             console.log(e.message)
-                  }})()
+                  }})();
+                  */
 
-  res.send("Posted an image brosky")
+}
+app.get("/GenerateQuotes", function(req, res) {
+    myObj = {};
+    myJSON = JSON.stringify(myObj);
+    myObj["posts"] = [];
+
+  const options = {
+    uri: "https://www.brainyquote.com/quote_of_the_day",
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+  rp(options)
+    .then(($) => {
+
+      for(var i =0; i<5;i++)
+      {
+      var item = { "Quote" : ($(".b-qt").eq(i).text()),
+                    "Autore" : ($(".bq-aut").eq(i).text())
+                  }
+
+      myObj["posts"].push(item);
+      scrivi(myObj["posts"][i].Quote,myObj["posts"][i].Autore, i);
+      }
+      console.log("Vediamo se worka il posting:\n");
+      PostaInstagram(myObj["posts"][2].Quote + " -- " + myObj["posts"][2].Autore, 2)
+
+
+      res.send(myObj);
+    })
+
+});
+
+
+
+
+app.get("/IG/:id", function(req, res) {
+  var ID = req.params.id;
+  res.send("TO DO endpoint che non fa nulla per ora")
+});
+
+app.get("/cookie/", function(req, res) {
+  OverriteThatCookie();
+  res.send("cookie refreshed")
 });
 
 app.set("port", serverPort);
