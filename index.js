@@ -424,7 +424,9 @@ function PostaInstagram(Caption, i)
                   */
 
 }
-app.get("/GenerateQuotes", function(req, res) {
+app.get("/GenerateQuotes/:id", function(req, res) {
+  var ID = ParseInt(req.params.id);
+
     myObj = {};
     myJSON = JSON.stringify(myObj);
     myObj["posts"] = [];
@@ -448,9 +450,7 @@ app.get("/GenerateQuotes", function(req, res) {
       scrivi(myObj["posts"][i].Quote,myObj["posts"][i].Autore, i);
       }
       console.log("Vediamo se worka il posting:\n");
-      PostaInstagram(myObj["posts"][2].Quote + " -- " + myObj["posts"][2].Autore, 2)
-
-
+      PostaInstagram(myObj["posts"][ID].Quote + " -- " + myObj["posts"][ID].Autore, ID)
       res.send(myObj);
     })
 
