@@ -409,7 +409,6 @@ app.get("/GenerateQuotes/:id", function(req, res) {
   };
   rp(options)
     .then(($) => {
-
       for(var i =0; i<5;i++)
       {
       var item = { "Quote" : ($(".b-qt").eq(i).text()),
@@ -420,7 +419,7 @@ app.get("/GenerateQuotes/:id", function(req, res) {
       scrivi(myObj["posts"][i].Quote,myObj["posts"][i].Autore, i);
       }
       console.log("Vediamo se worka il posting:\n");
-      PostaInstagram(myObj["posts"][ID].Quote + " -- " + myObj["posts"][ID].Autore, ID)
+      PostaInstagram(myObj["posts"][ID].Quote + " -- " + myObj["posts"][ID].Autore, ID);
       res.send(myObj);
     })
 
