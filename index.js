@@ -464,6 +464,11 @@ app.post("/sms", function (request, response) {
   response.send('Done by melone');
 });
 
+app.get("/Showcookie/", function(req, res) {
+  res.contentType('json');
+  res.sendFile(path.join(__dirname , '/cookies.json'));
+});
+
 app.get("/cookie/", function(req, res) {
   OverriteThatCookie();
   res.send("cookie refreshed è.è")
