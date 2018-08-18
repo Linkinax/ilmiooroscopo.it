@@ -22,6 +22,7 @@
     "request": "^2.87.0",
     "request-promise": "^4.2.2",
     "tough-cookie-filestore2": "^1.0.0",
-    "tumblr.js": "^2.0.0"
+    "tumblr.js": "^2.0.0",
+    "twilio": "^3.19.1"
   }
 }

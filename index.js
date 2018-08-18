@@ -7,6 +7,7 @@ const path = require('path');
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const _ = require("lodash");
+const twilio = require('twilio');
 
 
 
@@ -461,6 +462,17 @@ app.get("/GenerateQuotes/:id", function(req, res) {
 app.get("/IG/:id", function(req, res) {
   var ID = req.params.id;
   res.send("TO DO endpoint che non fa nulla per ora")
+});
+
+app.get("/sms", function(req, res) {
+  let message = {};
+  res.send(message);
+});
+
+app.post("/sms", function (request, response) {
+  console.log(request.body.Body);
+  console.log(request.body.From);
+  response.send("<Response><Message>" + request.body.Body + "</Message></Response>");
 });
 
 app.get("/cookie/", function(req, res) {
