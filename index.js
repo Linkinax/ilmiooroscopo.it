@@ -388,7 +388,7 @@ function PostaInstagram(Caption, i)
                     console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 694210  });
+                    await client.updateChallenge({ challengeUrl, securityCode: 476580  });
 
                     //console.log(wtfHappened);
 
@@ -466,8 +466,18 @@ app.get("/IG/:id", function(req, res) {
 
 app.get("/sms", function(req, res) {
   console.log("Getting SMS!");
-  res.send(req.body.Body);
+  var obj= {};
+  obj["mex"]= [];
+  const accountSid = 'ACb7e79addebe7b6920a6b8b5a1ae84901';
+  const authToken = '4443fdb1a17e97d9909323d188bcc308';
+  const client = require('twilio')(accountSid, authToken);
+client.messages.each(messages => {
+  console.log(messages.body)
+  //obj["mex"].push(obj.mexTxt = messages.body)
+  //res.send(obj)
 });
+  });
+
 
 app.post("/sms", function (request, response) {
   console.log("POSTING SMS!");
@@ -487,6 +497,12 @@ app.post("/sms", function (request, response) {
 app.get("/cookie/", function(req, res) {
   OverriteThatCookie();
   res.send("cookie refreshed")
+});
+
+app.get("/code/:id", function(req, res) {
+  var ID = req.params.id;
+
+  res.send("I did it");
 });
 
 app.set("port", serverPort);
