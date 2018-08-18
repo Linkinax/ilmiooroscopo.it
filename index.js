@@ -402,7 +402,7 @@ app.get("/GenerateQuotes/:id", function(req, res) {
     myObj["posts"] = [];
 
   const options = {
-    baseUrl: "https://www.brainyquote.com/quote_of_the_day",
+    baseUrl: 'https://www.brainyquote.com/quote_of_the_day',
     transform: function (body) {
       return cheerio.load(body);
     }
