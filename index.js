@@ -388,41 +388,11 @@ function PostaInstagram(Caption, i)
                     console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 037619  });
-
-                    //console.log(wtfHappened);
-
+                    await client.updateChallenge({ challengeUrl, securityCode: 037619  })
+                    .then( (data)=>{console.log(data)})
+                    .catch((err) => {console.log(err)})
                   }
-                  //await client.login()
                 }})();
-/*(async () => {
-                try {
-                        console.log("Provo a postare la foto");
-                        await client.login()
-                        .then(() => {
-                          const photo = 'dIoCanaglia'+ i.toString()+ '.jpg'
-                          (async () => {
-
-                            const { media } = await client.uploadPhoto({ photo, caption: Caption })
-                                          .then(() => {
-                                            console.log("we fuckin did it man, tempo di commentare")
-                                            console.log(`HUEHUEHUE:\thttps://www.instagram.com/p/${media.code}/`)
-                                            (async () => {
-
-                                              await client.addComment({ mediaId: media.code, text: '#quote #like4like #l4l #instaquote #inspirationalquotes #life #quotestoliveby #quotesaboutlife #instagramquote #positive #amen #cit #words #mindset #love #facts #passion #sayings #lovequotes #quoteoftheday #relatable #accurate #instagood #' + Caption.split("--")[1]})
-
-
-                                            })()
-                                        })
-                          })()
-
-                                      })
-                        } catch (e) {
-
-                            console.log(e.message)
-                  }})();
-                  */
-
 }
 app.get("/GenerateQuotes/:id", function(req, res) {
   var ID = parseInt(req.params.id);
