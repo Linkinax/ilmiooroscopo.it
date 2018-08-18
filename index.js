@@ -465,13 +465,16 @@ app.get("/IG/:id", function(req, res) {
 });
 
 app.get("/sms", function(req, res) {
-
+  console.log("Getting SMS!");
   res.send(req.body.Body);
 });
 
 app.post("/sms", function (request, response) {
+  console.log("POSTING SMS!");
   let splits = request.body.Body.split(" ");
+  console.log(request.body.Body);
   let numerino = splits[1].toString().join(splits[2].toString());
+  console.log(numerino);
 
   let fs = require('fs');
   fs.writeFile("Madonnina.txt", numerino,(err) => {
