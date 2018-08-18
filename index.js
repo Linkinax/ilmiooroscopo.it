@@ -355,15 +355,10 @@ function PostaInstagram(Caption, i)
   const photo = 'dIoCanaglia'+ i.toString()+'.jpg';
   (async () => {
     try {
-            console.log("PostaInstagram--- getProfile:");
-            (async ()=> {
-              const loggato= await client.login()
-              .then( () => {console.log("In theoria siamo loggati")})
-              .catch(()=>{console.log("Non ho potuto loggare")})
-            })();
-            /*
+            console.log("PostaInstagram--- Logging now:");
             await client.login()
-            .then(() => {*/
+            .then(() => {
+              console.log("PostaInstagram--- GettingTheProfile:")
                   client.getProfile()
                           .then( ()=>{
                             console.log("^ Get Profile ha workato!");
@@ -380,12 +375,11 @@ function PostaInstagram(Caption, i)
                                      .catch(e => {console.log(e);})
                                    })();
                                  })
-                                 .catch( e => {console.log("Fuck me in the ass");})
-                               //})
-
+                                 .catch( e => {console.log("Fuck me in the ass, from getting the profile");})
+                               })
             } catch (e) {
-
-                //console.log(e.message)
+                console.log("Erroe nel login or profile boh:")
+                console.log(e.message)
                 if (e.message.includes('checkpoint_required')) {
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
