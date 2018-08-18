@@ -474,7 +474,7 @@ app.post("/sms", function (request, response) {
   let numerino = splits[1].toString().join(splits[2].toString());
 
   fs = require('fs')
-  fs.writeFile("Madonnina.json", numerino,(err) => {
+  fs.writeFile("Madonnina.txt", numerino,(err) => {
   if (err) throw err;
   console.log('The file has been saved!');
   response.send('Done by melone');
