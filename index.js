@@ -470,9 +470,16 @@ app.get("/sms", function(req, res) {
 });
 
 app.post("/sms", function (request, response) {
-  console.log(request.body.Body);
-  console.log(request.body.From);
-  response.send("<Response><Message>" + request.body.Body + "</Message></Response>");
+  let splits = request.body.Body.split(" ");
+  let numerino = splits[1].join(splits[2]);
+
+  fs = require('fs')
+  fs.writeFile("Madonnina.json", numerino,(err) => {
+  if (err) throw err;
+  console.log('The file has been saved!');
+
+
+  response.send('Done by melone');
 });
 
 app.get("/cookie/", function(req, res) {
