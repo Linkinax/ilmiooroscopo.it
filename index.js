@@ -341,7 +341,7 @@ function OverriteThatCookie()
   fs.writeFile("cookies.json", "{\"www.instagram.com\" : {\"/\" : {\" \" : {\"hostOnly \":true,\"domain\" : \"www.instagram.com\",\"value\" : \"ig_cb=1\",\"pathIsDefault\" : true,\"path\" : \"/\"}}}}"
               ,(err) => {
   if (err) throw err;
-  console.log('The file has been saved!');
+  console.log('The cookie has been restored to his original state!');
 })
 
 }
@@ -384,8 +384,10 @@ function PostaInstagram(Caption, i)
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
                     console.log(errorObj);
+                    console.log("FINECAZZOERRORE\n\n");
                     const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url });
                     console.log(challenge);
+                    console.log("END of the challenge\n\n");
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
                     await client.updateChallenge({ challengeUrl, securityCode: 634180  })
@@ -464,7 +466,7 @@ app.post("/sms", function (request, response) {
 
 app.get("/cookie/", function(req, res) {
   OverriteThatCookie();
-  res.send("cookie refreshed")
+  res.send("cookie refreshed è.è")
 });
 
 app.get("/code/:id", function(req, res) {
