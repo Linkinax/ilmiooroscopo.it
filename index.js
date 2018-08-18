@@ -387,7 +387,7 @@ function PostaInstagram(Caption, i)
                     console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 852376  });
+                    await client.updateChallenge({ challengeUrl, securityCode: 694210  });
 
                     //console.log(wtfHappened);
 
