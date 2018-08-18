@@ -359,7 +359,7 @@ function PostaInstagram(Caption, i)
             await client.login()
             .then(() => {
                   client.getProfile()
-                          .then( (data)=>{
+                          .then( ()=>{
                             console.log("^ Get Profile ha workato!");
                             (async () => {
                                await client.uploadPhoto({ photo, caption: Caption })
@@ -369,23 +369,22 @@ function PostaInstagram(Caption, i)
                                    console.log(media);
                                      await client.addComment({ mediaId: media.id, text: '#quote #like4like #l4l #instaquote #inspirationalquotes #life #quotestoliveby #quotesaboutlife #instagramquote #positive #amen #cit #words #mindset #love #facts #passion #sayings #lovequotes #quoteoftheday #relatable #accurate #instagood #' + Caption.split("-- ")[1].replace(" ", "")})
                                      .then(() =>{
-                                       console.log("Orcamadonna se ho commentato")
+                                       console.log("Orcamadonna se ho commentato");
                                      })
-                                     .catch(e => {console.log(e)})
+                                     .catch(e => {console.log(e);})
                                    })();
                                  })();
                                })
 
             } catch (e) {
 
-                console.log(e.message)
-
+                //console.log(e.message)
                 if (e.message.includes('checkpoint_required')) {
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
-                    console.log(errorObj);
+                    //console.log(errorObj);
                     const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url });
-                    console.log(challenge);
+                    //console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
                     await client.updateChallenge({ challengeUrl, securityCode: 785213  })
