@@ -388,7 +388,7 @@ function PostaInstagram(Caption, i)
                     console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 635872  })
+                    await client.updateChallenge({ challengeUrl, securityCode: 569231  })
                     .then( ()=>{console.log("Dovrei Aver finito ")})
                     .catch((err) => {console.log(err)})
                   }
@@ -402,7 +402,7 @@ app.get("/GenerateQuotes/:id", function(req, res) {
     myObj["posts"] = [];
 
   const options = {
-    uri: "https://www.brainyquote.com/quote_of_the_day",
+    baseUrl: "https://www.brainyquote.com/quote_of_the_day",
     transform: function (body) {
       return cheerio.load(body);
     }
