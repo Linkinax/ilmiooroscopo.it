@@ -465,8 +465,8 @@ app.get("/IG/:id", function(req, res) {
 });
 
 app.get("/sms", function(req, res) {
-  let message = {};
-  res.send(message);
+
+  res.send(req.body.Body);
 });
 
 app.post("/sms", function (request, response) {
