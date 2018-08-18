@@ -356,7 +356,10 @@ function PostaInstagram(Caption, i)
   (async () => {
     try {
             console.log("PostaInstagram--- getProfile:");
-            await client.login()
+            (async ()=> {
+              const loggato= await client.login();
+              console.log("In theoria siamo loggati")
+            })();
             /*
             await client.login()
             .then(() => {*/
