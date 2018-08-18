@@ -374,7 +374,8 @@ function PostaInstagram(Caption, i)
                                      })
                                      .catch(e => {console.log(e);})
                                    })();
-                                 })();
+                                 })
+                                 .catch( e => {console.log(e);})
                                //})
 
             } catch (e) {
