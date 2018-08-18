@@ -471,14 +471,12 @@ app.get("/sms", function(req, res) {
 
 app.post("/sms", function (request, response) {
   let splits = request.body.Body.split(" ");
-  let numerino = splits[1].join(splits[2]);
+  let numerino = splits[1].toString().join(splits[2].toString());
 
   fs = require('fs')
   fs.writeFile("Madonnina.json", numerino,(err) => {
   if (err) throw err;
   console.log('The file has been saved!');
-
-
   response.send('Done by melone');
 });
 
