@@ -380,6 +380,8 @@ function PostaInstagram(Caption, i)
             } catch (e) {
                 console.log("Erroe nel login or profile boh:")
                 console.log(e.message)
+                console.log("CAPO trOLL: mo' riloggo")
+                await client.login()
                 if (e.message.includes('checkpoint_required')) {
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
