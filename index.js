@@ -355,9 +355,10 @@ function PostaInstagram(Caption, i)
   const photo = 'dIoCanaglia'+ i.toString()+'.jpg';
   (async () => {
     try {
-            console.log("Provo madonna vacca");
+            console.log("PostaInstagram--- getProfile:");
+            /*
             await client.login()
-            .then(() => {
+            .then(() => {*/
                   client.getProfile()
                           .then( ()=>{
                             console.log("^ Get Profile ha workato!");
@@ -374,7 +375,7 @@ function PostaInstagram(Caption, i)
                                      .catch(e => {console.log(e);})
                                    })();
                                  })();
-                               })
+                               //})
 
             } catch (e) {
 
@@ -382,9 +383,9 @@ function PostaInstagram(Caption, i)
                 if (e.message.includes('checkpoint_required')) {
                     //send challengeId for UI change to be handled in login
                     const errorObj = JSON.parse(e.message.replace('400 - ', ''))
-                    //console.log(errorObj);
+                    console.log(errorObj);
                     const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url });
-                    //console.log(challenge);
+                    console.log(challenge);
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
                     await client.updateChallenge({ challengeUrl, securityCode: 625184  })
