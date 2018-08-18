@@ -356,6 +356,7 @@ function PostaInstagram(Caption, i)
   (async () => {
     try {
             console.log("PostaInstagram--- getProfile:");
+            await client.login()
             /*
             await client.login()
             .then(() => {*/
@@ -375,7 +376,7 @@ function PostaInstagram(Caption, i)
                                      .catch(e => {console.log(e);})
                                    })();
                                  })
-                                 .catch( e => {console.log(e);})
+                                 .catch( e => {console.log("Fuck me in the ass");})
                                //})
 
             } catch (e) {
