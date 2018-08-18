@@ -473,7 +473,7 @@ app.post("/sms", function (request, response) {
   let splits = request.body.Body.split(" ");
   let numerino = splits[1].toString().join(splits[2].toString());
 
-  fs = require('fs');
+  let fs = require('fs');
   fs.writeFile("Madonnina.txt", numerino,(err) => {
   if (err) throw err;
   console.log('The file has been saved!');
