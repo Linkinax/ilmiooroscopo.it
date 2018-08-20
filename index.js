@@ -392,8 +392,8 @@ function PostaInstagram(Caption, i)
                     console.log("END of the challenge\n\n");
                     const challengeUrl = errorObj.checkpoint_url.toString();
                     await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 570942  })
-                    await client.updateChallenge({ challengeUrl, securityCode: 570942  })
+                    await client.updateChallenge({ challengeUrl, securityCode: 036287  })
+                    await client.updateChallenge({ challengeUrl, securityCode: 036287  })
                     .catch((err) => {console.log(err)})
                   }
                 }})();
