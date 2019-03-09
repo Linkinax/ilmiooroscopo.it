@@ -19,8 +19,12 @@
     "instagram-web-api": "^2.0.0",
     "jimp": "^0.3.5",
     "knex": "^0.15.2",
+    "reddit-oauth": "^1.1.1",
+    "reddit-wrapper-v2": "^1.1.5",
+    "redditor": "^1.1.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
+    "snoowrap": "^1.15.2",
     "tough-cookie-filestore2": "^1.0.0",
     "tumblr.js": "^2.0.0",
     "twilio": "^3.19.1"

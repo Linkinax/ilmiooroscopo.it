@@ -8,6 +8,8 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 const _ = require("lodash");
 const twilio = require('twilio');
+var reddit = require('redditor');
+
 
 
 
@@ -64,6 +66,36 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
     });
 });
 
+
+
+
+
+
+app.get("/reddit", function (req, res){
+
+
+  myObj = {};
+  myObj['posts'] = [];
+  reddit.get('/r/aww.json', function(err, response) {
+      if(err) throw err;
+      //console.log(response);
+      for( i in response['data']['children'])
+      {
+        //console.log(response['data']['children'][i.toString()]);
+        console.log(response['data']['children'][i.toString()]['data']['title'] +"\t" + response['data']['children'][i.toString()]['data']['url'] +"\n");
+
+        var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                      "title" : response['data']['children'][i.toString()]['data']['title']}
+
+        myObj["posts"].push(item);
+      }
+      console.log(myObj);
+      res.send(myObj);
+      //return myObj;
+    });
+
+});
+
 app.get("/oroscopoSettimanale/:id", function(req, res) {
   var ID = req.params.id;
   //Storing data:
@@ -96,10 +128,8 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
           });
       });
 
-      app.get("/affiliateMarketing/:params", function(req, res) {
-        var ID =  req.params.id;
-        var link = req.query.link;
-        console.log(link);
+      app.get("/affiliateMarketing", function(req, res) {
+
         //Storing data:
           myObj = {};
           myJSON = JSON.stringify(myObj);
@@ -108,60 +138,52 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
           var tumblr = require('tumblr.js');
 
           var clientMemes =  tumblr.createClient({
-        consumer_key: 'aFqcfXO4lL85ox1j3kXqgHGIpje7QgSGMzA50aKdQBb18FUqWP',
-        consumer_secret: '93Sgl6llc6nUgPhsngqSMq2tE3f4r2CCthLXsLoTitLsVwrksn',
-        token: 'hClA3CZTHIgtH9gp5n60ekTe6li1tihSOcgjKzjF3BuJN8dDYq',
-        token_secret: 'FkPA3IE056JvFkT0dTlYjDOZTtBFIR0Tn0CHH0OBsvg48vbZqX'
-      });
-        const options = {
-          uri: link,
-          transform: function (body) {
-            return cheerio.load(body);
-          }
-        };
-        rp(options)
-          .then(($) => {
+                consumer_key: 'aFqcfXO4lL85ox1j3kXqgHGIpje7QgSGMzA50aKdQBb18FUqWP',
+                consumer_secret: '93Sgl6llc6nUgPhsngqSMq2tE3f4r2CCthLXsLoTitLsVwrksn',
+                token: 'hClA3CZTHIgtH9gp5n60ekTe6li1tihSOcgjKzjF3BuJN8dDYq',
+                token_secret: 'FkPA3IE056JvFkT0dTlYjDOZTtBFIR0Tn0CHH0OBsvg48vbZqX'
+              });
 
-
-            var reblogBtn= $('.control.reblog-control');
             var dembtns = [
-             "https://www.tumblr.com/reblog/183044386378/6maTGp4t",
-"https://www.tumblr.com/reblog/183044383603/XvknIXCs",
-"https://www.tumblr.com/reblog/183044381223/Y60f6bk8",
-"https://www.tumblr.com/reblog/183044379873/EGPMlaxk",
-"https://www.tumblr.com/reblog/183044378033/hMKkKWKR",
-"https://www.tumblr.com/reblog/183044396228/utuD5tnp",
-"https://www.tumblr.com/reblog/183044393793/isQxM3ZQ",
-"https://www.tumblr.com/reblog/183044391568/drGgsLbC",
-"https://www.tumblr.com/reblog/183044389828/VdvVHIuY",
-"https://www.tumblr.com/reblog/183044387913/mlxH3F8X",
-"https://www.tumblr.com/reblog/183044403283/VknVFOIk",
-"https://www.tumblr.com/reblog/183044401943/iaqI4FjB",
-"https://www.tumblr.com/reblog/183044400628/Komt0xXG",
-"https://www.tumblr.com/reblog/183044398978/VxsujPTG",
-"https://www.tumblr.com/reblog/183044397403/mmlSzPhw",
-"https://www.tumblr.com/reblog/183044413213/GQhGrHRs",
-"https://www.tumblr.com/reblog/183044409073/GdVYA6Nd",
-"https://www.tumblr.com/reblog/183044407758/A1RjuWVe",
-"https://www.tumblr.com/reblog/183044406343/qnZThy9i",
-"https://www.tumblr.com/reblog/183044404683/JqGyBxVr",
-"https://www.tumblr.com/reblog/183044428333/NGit7JER",
-"https://www.tumblr.com/reblog/183044426403/IOEtKJ6N",
-"https://www.tumblr.com/reblog/183044421268/Bz2BZFWD",
-"https://www.tumblr.com/reblog/183044419998/Tw0mOREm",
-"https://www.tumblr.com/reblog/183044418718/7ATRgxPP",
-"https://www.tumblr.com/reblog/183044435743/TXmei7nj",
-"https://www.tumblr.com/reblog/183044433938/zFk5dERt",
-"https://www.tumblr.com/reblog/183044431468/629tpvjs",
-"https://www.tumblr.com/reblog/183044429943/YPiXizrW",
-"https://www.tumblr.com/reblog/183044417368/5RHSfLNZ",
-"https://www.tumblr.com/reblog/183044445583/3dyokRQz",
-"https://www.tumblr.com/reblog/183044443613/zFeczHDO",
-"https://www.tumblr.com/reblog/183044441358/KzZQCC96",
-"https://www.tumblr.com/reblog/183044439493/stWWwKUR",
-"https://www.tumblr.com/reblog/183044437723/rZLHgPQ3",
+              "https://www.tumblr.com/reblog/183209241968/uHJdHEws",
+ "https://www.tumblr.com/reblog/183209239758/LyP5CYcy",
+ "https://www.tumblr.com/reblog/183209237323/Komt0xXG",
+ "https://www.tumblr.com/reblog/183209230108/VdvVHIuY",
+ "https://www.tumblr.com/reblog/183209224328/drGgsLbC",
+ "https://www.tumblr.com/reblog/183209273483/hMKkKWKR",
+ "https://www.tumblr.com/reblog/183209258228/UkbFNIMl",
+ "https://www.tumblr.com/reblog/183209256048/VxsujPTG",
+ "https://www.tumblr.com/reblog/183209248438/iTdHf7ot",
+ "https://www.tumblr.com/reblog/183209245778/SnB30OHu",
+ "https://www.tumblr.com/reblog/183209269263/54L1vNDz",
+ "https://www.tumblr.com/reblog/183209267278/6PCoo2YO",
+ "https://www.tumblr.com/reblog/183209264408/imAjrf74",
+ "https://www.tumblr.com/reblog/183209262193/YPiXizrW",
+ "https://www.tumblr.com/reblog/183209260208/5Xq0Lrc9",
+ "https://www.tumblr.com/reblog/183209288498/EuWsXvty",
+ "https://www.tumblr.com/reblog/183209286323/20sSjHNX",
+ "https://www.tumblr.com/reblog/183209283198/xfJz8CNU",
+ "https://www.tumblr.com/reblog/183209281263/KGSL3D6R",
+ "https://www.tumblr.com/reblog/183209278428/FlS5s0mW",
+ "https://www.tumblr.com/reblog/183209297938/mmlSzPhw",
+ "https://www.tumblr.com/reblog/183209295958/FZKcS3kz",
+ "https://www.tumblr.com/reblog/183209294293/isQxM3ZQ",
+ "https://www.tumblr.com/reblog/183209292408/6maTGp4t",
+ "https://www.tumblr.com/reblog/183209290403/AfFfpINt",
+ "https://www.tumblr.com/reblog/183209308273/hoMS7aXq",
+ "https://www.tumblr.com/reblog/183209305883/pAJqPlY2",
+ "https://www.tumblr.com/reblog/183209303773/aH3tcAbp",
+ "https://www.tumblr.com/reblog/183209301878/EGPMlaxk",
+ "https://www.tumblr.com/reblog/183209299873/qYyBKCR0",
+ "https://www.tumblr.com/reblog/183209322108/TRQRjW24",
+ "https://www.tumblr.com/reblog/183209319493/JqGyBxVr",
+ "https://www.tumblr.com/reblog/183209316853/CaQakPOT",
+ "https://www.tumblr.com/reblog/183209313773/GdVYA6Nd",
+ "https://www.tumblr.com/reblog/183209311163/i5wmBtJN",
+
             ]
-            var urlz = "https://www.tumblr.com/reblog/176258039384/q0n3w6v8";
+
+
 
             for(var i=0;i< 35;i++)
             {
@@ -200,11 +222,8 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
 
 
 
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            });
+          });
+
 
 // app.use(function(req, res) {
 //   res.status(400);
@@ -261,6 +280,87 @@ app.get("/tumblrQueue/", function(req, res) {
     });
 });
 
+
+
+app.get("/Testing", function(req, res) {
+
+
+  const options = {
+    uri: "https://www.reddit.com/r/ProgrammerHumor/top/?t=day",
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+
+  rp(options)
+    .then(($) => {
+      var megaDiv= $(".scrollerItem").eq(3);
+      console.log(megaDiv.html());
+
+
+      console.log("\n\n\n\n\nEND MEGa\n");
+
+      var post= $(".s1okktje-1");
+      var postLink= $(".s1okktje-1 > span > a")
+
+
+      for(var i=0; i<6;i++)
+
+        console.log(postLink.eq(i).attr('href')+ "\t"); // <--- works
+        console.log(post.eq(i).text()+ "\n");
+        console.log(post.eq(i).html());
+    });
+
+
+    res.send("GGWP");
+});
+
+
+
+
+
+app.get("/tumblrAwwRedditQueue", function(req, res) {
+  var tumblr = require('tumblr.js');
+  var clientMemes = tumblr.createClient({
+      consumer_key: 'fIJI5esiBwbsttsdd6QhPSB4GvNXMlwzkSAq43efSH8ri9cpQ9',
+      consumer_secret: 'Z4ce5s0NCGsvBOYcW5TrLKYkrDjt0Qodd6XHBzuvnzA0PolBXi',
+      token: 'i0YJqjj5plA4GN906vuirucDdLFO1uief2jKPbDVQAB6oiwzFd',
+      token_secret: '4uqPSXZHaz15WuSK03lETB8QLUhqf9LvqZhjvetwIKPNSRXG0D'});
+
+      myObj = {};
+      myJSON = JSON.stringify(myObj);
+      myObj["posts"] = [];
+      reddit.get('/r/aww.json', function(err, response) {
+          if(err) throw err;
+          //console.log(response);
+          for( i in response['data']['children'])
+          {
+            //console.log(response['data']['children'][i.toString()]);
+            //console.log(response['data']['children'][i.toString()]['data']['title'] +"\t" + response['data']['children'][i.toString()]['data']['url'] +"\n");
+
+            var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                          "title" : response['data']['children'][i.toString()]['data']['title'],
+                        "tags" : "aww, cute, adorable, awww"}
+
+            myObj["posts"].push(item);
+          }
+
+        for(var i=2; i<26; i++)
+        {
+
+          clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
+                                                                        "state": "queue",
+                                                                      "caption": myObj["posts"][i].title,
+                                                                     "source": myObj["posts"][i].url,
+                                                                     "tags" : myObj["posts"][i].tags} ,
+                                function(err, data){
+                                  //console.log("Posted: \t" + myObj["posts"][i].title);
+                                });
+        }
+      });
+    });
+
+
 app.get("/tumblrAwwQueue/", function(req, res) {
   //Storing data:
     myObj = {};
@@ -306,6 +406,7 @@ app.get("/tumblrAwwQueue/", function(req, res) {
       }
       res.send(myObj);
     })
+
     .catch((err) => {
       console.log(err);
     });
