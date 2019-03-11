@@ -360,6 +360,46 @@ app.get("/tumblrAwwRedditQueue", function(req, res) {
     });
 
 
+    app.get("/tumblrProgrammingHumourRedditQueue", function(req, res) {
+      var tumblr = require('tumblr.js');
+      var client = tumblr.createClient({
+        consumer_key: 'UqBfts94LerDmvzD3kzVLO8bEFLk3cnMUyWJVixgtSQ6lJnJgs',
+    consumer_secret: 'j5awYsaeIJLFRsp5Xa8HLw3NTRkIu0hOkabnxRMXrJRU2Nl7v9',
+    token: '4jetVoiKNwzI334IC1LQIkjHUiIxTilnzEFqW83jKCe8xpY8Uz',
+    token_secret: 'HKSWHm3jaCpty71yYERBD4WjfLCIjxFthbV5F9n1lFAH8SQ4Xe'
+    });
+          myObj = {};
+          myJSON = JSON.stringify(myObj);
+          myObj["posts"] = [];
+          reddit.get('/r/ProgrammerHumor.json', function(err, response) {
+              if(err) throw err;
+              //console.log(response);
+              for( i in response['data']['children'])
+              {
+
+                var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                              "title" : response['data']['children'][i.toString()]['data']['title'],
+                            "tags" : "funny, joke, programming, programmer, computer, humor"}
+
+                myObj["posts"].push(item);
+              }
+            for(var i=2; i<26; i++)
+            {
+              client.createPost("programminghumour.tumblr.com", params = { "type": "photo",
+                                                                            "state": "queue",
+                                                                          "caption": myObj["posts"][i].title,
+                                                                         "source": myObj["posts"][i].url,
+                                                                         "tags" : myObj["posts"][i].tags} ,
+                                    function(err, data){
+                                      //console.log("Posted: \t" + myObj["posts"][i].title);
+                                    });
+            }
+
+            res.send(myObj);
+          });
+        });
+
+
 app.get("/tumblrAwwQueue/", function(req, res) {
   //Storing data:
     myObj = {};
