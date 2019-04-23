@@ -9,6 +9,8 @@ const cheerio = require('cheerio');
 const _ = require("lodash");
 const twilio = require('twilio');
 var reddit = require('redditor');
+require('newrelic');
+
 
 
 
@@ -145,41 +147,41 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
               });
 
             var dembtns = [
-              "https://www.tumblr.com/reblog/183376830795/92Rw6uOa",
-"https://www.tumblr.com/reblog/183376827930/54L1vNDz",
-"https://www.tumblr.com/reblog/183376825815/YPiXizrW",
-"https://www.tumblr.com/reblog/183376823570/taCbGaWA",
-"https://www.tumblr.com/reblog/183376821635/5RHSfLNZ",
-"https://www.tumblr.com/reblog/183376840930/W1J8fZON",
-"https://www.tumblr.com/reblog/183376837340/rZLHgPQ3",
-"https://www.tumblr.com/reblog/183376836060/x0O9EfeV",
-"https://www.tumblr.com/reblog/183376834155/EGPMlaxk",
-"https://www.tumblr.com/reblog/183376832465/hzBnMruO",
-"https://www.tumblr.com/reblog/183376850680/KVM3wjzg",
-"https://www.tumblr.com/reblog/183376848375/MDnij8Ln",
-"https://www.tumblr.com/reblog/183376846595/20sSjHNX",
-"https://www.tumblr.com/reblog/183376844700/EnVSgWnT",
-"https://www.tumblr.com/reblog/183376842980/VxsujPTG",
-"https://www.tumblr.com/reblog/183376859730/4bx1Gz98",
-"https://www.tumblr.com/reblog/183376858255/a5e1iE4a",
-"https://www.tumblr.com/reblog/183376855840/fZomFhh5",
-"https://www.tumblr.com/reblog/183376854310/353xNbQK",
-"https://www.tumblr.com/reblog/183376852805/rJo4q3YO",
-"https://www.tumblr.com/reblog/183376792655/ZHMc7joV",
-"https://www.tumblr.com/reblog/183376791145/Bz2BZFWD",
-"https://www.tumblr.com/reblog/183376789510/mmlSzPhw",
-"https://www.tumblr.com/reblog/183376787930/SnB30OHu",
-"https://www.tumblr.com/reblog/183376785470/uHJdHEws",
-"https://www.tumblr.com/reblog/183376805865/UdbDMimt",
-"https://www.tumblr.com/reblog/183376804155/oRXBHw4E",
-"https://www.tumblr.com/reblog/183376802470/MF5JT20i",
-"https://www.tumblr.com/reblog/183376800430/xfJz8CNU",
-"https://www.tumblr.com/reblog/183376797505/hMKkKWKR",
-"https://www.tumblr.com/reblog/183376817360/nSfwatsH",
-"https://www.tumblr.com/reblog/183376815540/xwTGIWj8",
-"https://www.tumblr.com/reblog/183376813065/IgjVaMPD",
-"https://www.tumblr.com/reblog/183376810560/Komt0xXG",
-"https://www.tumblr.com/reblog/183376807775/PJj6EWT2",
+"https://www.tumblr.com/reblog/183862510404/WTedm4H6",
+"https://www.tumblr.com/reblog/183862510159/ROC2Nj9p",
+"https://www.tumblr.com/reblog/183862510024/EQgiQNIb",
+"https://www.tumblr.com/reblog/183862509929/CE4NUsUZ",
+"https://www.tumblr.com/reblog/183862509579/YPiXizrW",
+"https://www.tumblr.com/reblog/183862785349/jX4MVZTk",
+"https://www.tumblr.com/reblog/183862784339/mx1hyJlB",
+"https://www.tumblr.com/reblog/183862783984/xfJz8CNU",
+"https://www.tumblr.com/reblog/183862783854/bzlMCzE9",
+"https://www.tumblr.com/reblog/183862736414/d08KoreG",
+"https://www.tumblr.com/reblog/183862895434/JdysQvpB",
+"https://www.tumblr.com/reblog/183862893879/IOEtKJ6N",
+"https://www.tumblr.com/reblog/183862877074/Z1QOyOWn",
+"https://www.tumblr.com/reblog/183862875554/4bx1Gz98",
+"https://www.tumblr.com/reblog/183862872904/aH3tcAbp",
+"https://www.tumblr.com/reblog/183862904319/mOXvKOoo",
+"https://www.tumblr.com/reblog/183862901709/MBlaIDDa",
+"https://www.tumblr.com/reblog/183862900219/4lJUxJKh",
+"https://www.tumblr.com/reblog/183862898634/n1u2WDZj",
+"https://www.tumblr.com/reblog/183862896909/SnB30OHu",
+"https://www.tumblr.com/reblog/183863204079/1lINC84g",
+"https://www.tumblr.com/reblog/183863201424/o2Dtkj5u",
+"https://www.tumblr.com/reblog/183863198589/5kHgnZU7",
+"https://www.tumblr.com/reblog/183863194429/8MekC4Gg",
+"https://www.tumblr.com/reblog/183863190609/e5puvcrH",
+"https://www.tumblr.com/reblog/183863218174/bmQtpKoE",
+"https://www.tumblr.com/reblog/183863215034/91z3f2m3",
+"https://www.tumblr.com/reblog/183863212679/hzBnMruO",
+"https://www.tumblr.com/reblog/183863209889/kFcupzoR",
+"https://www.tumblr.com/reblog/183863207114/lcXlFJuZ",
+"https://www.tumblr.com/reblog/183863236889/ZRJhsyuL",
+"https://www.tumblr.com/reblog/183863234229/g3ArMKq0",
+"https://www.tumblr.com/reblog/183863230779/9jHtFttn",
+"https://www.tumblr.com/reblog/183863228389/4VrydgaU",
+"https://www.tumblr.com/reblog/183863225749/pshqvIyY",
 
 
             ]
@@ -484,59 +486,6 @@ function OverriteThatCookie()
   console.log('The cookie has been restored to his original state!');
 })
 
-}
-function PostaInstagram(Caption, i)
-{
-  const Instagram = require('instagram-web-api');
-  const FileCookieStore = require('tough-cookie-filestore2')
-  const { username, password } = process.env;
-  const cookieStore = new FileCookieStore('cookies.json')
-  const client = new Instagram({ username:"unsaid.citations", password:"verdesmeraldo", cookieStore });
-  const photo = 'dIoCanaglia'+ i.toString()+'.jpg';
-  (async () => {
-    try {
-            console.log("PostaInstagram--- Logging now:");
-            await client.login()
-            .then(() => {
-              console.log("PostaInstagram--- GettingTheProfile:");
-                  client.getProfile()
-                          .then( ()=>{
-                            console.log("^ Get Profile ha workato!");
-                            (async () => {
-                               await client.uploadPhoto({ photo, caption: Caption })
-                                   console.log("we fuckin did it man, #photoUploaded! tempo di commentare");
-                                   const test = await client.getUserByUsername({ username: 'unsaid.citations' });
-                                   const media = await client.getMediaByShortcode({ shortcode: test.edge_owner_to_timeline_media.edges[0].node.shortcode });
-                                   console.log(media);
-                                     await client.addComment({ mediaId: media.id, text: '#quote #like4like #l4l #instaquote #inspirationalquotes #life #quotestoliveby #quotesaboutlife #instagramquote #positive #amen #cit #words #mindset #love #facts #passion #sayings #lovequotes #quoteoftheday #relatable #accurate #instagood #' + Caption.split("-- ")[1].replace(" ", "")})
-                                     .then(() =>{
-                                       console.log("Orcamadonna se ho commentato");
-                                     })
-                                     .catch(e => {console.log(e);})
-                                   })();
-                                 })
-                                 .catch( e => {console.log("Fuck me in the ass, from getting the profile");})
-                               })
-            } catch (e) {
-                console.log("Erroe nel login or profile boh:")
-                console.log(e.message)
-
-
-                if (e.message.includes('checkpoint_required')) {
-                    //send challengeId for UI change to be handled in login
-                    const errorObj = JSON.parse(e.message.replace('400 - ', ''))
-                    console.log(errorObj);
-                    console.log("FINECAZZOERRORE\n\n");
-                    const challenge = await client.getChallenge({ challengeUrl: errorObj.checkpoint_url });
-                    console.log(challenge);
-                    console.log("END of the challenge\n\n");
-                    const challengeUrl = errorObj.checkpoint_url.toString();
-                    await client.updateChallenge({ challengeUrl, choice: 0 });
-                    await client.updateChallenge({ challengeUrl, securityCode: 074982  })
-                    await client.updateChallenge({ challengeUrl, securityCode: 074982  })
-                    .catch((err) => {console.log(err)})
-                  }
-                }})();
 }
 app.get("/GenerateQuotes/:id", function(req, res) {
   var ID = parseInt(req.params.id);

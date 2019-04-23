@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/silverbulleters/sonarqube-inject-vsc/master/schemas/sonarlint.json",
+    "serverId": "localhost",
+    "projectKey": "38e2aaf2b169b0333349a216e6948cf9abf3cf02"
+}
+{
+    "$schema": "https://raw.githubusercontent.com/silverbulleters/sonarqube-inject-vsc/master/schemas/global.json",
+    "servers": [
+        {
+            "id": "localhost",
+            "url": "http://localhost:9000",
+            "user": "admin",
+            "password": "admin",
+            "token": "38e2aaf2b169b0333349a216e6948cf9abf3cf02"
+
+        }
+        
+    ]
+}
