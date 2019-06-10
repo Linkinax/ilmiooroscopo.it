@@ -13,7 +13,17 @@ require('newrelic');
 
 
 
+function OverriteThatCookie()
+{
+  fs = require('fs')
+  fs.writeFile("cookies.json", "{\"www.instagram.com\" : {\"/\" : {\" \" : {\"hostOnly \":true,\"domain\" : \"www.instagram.com\",\"value\" : \"ig_cb=1\",\"pathIsDefault\" : true,\"path\" : \"/\"}}}}"
+              ,(err) => {
+  if (err) throw err;
+  console.log('The cookie has been restored to his original state!');
+});
+}
 
+//OverriteThatCookie();
 
 
 let serverPort = process.env.PORT || 5000;
@@ -74,8 +84,6 @@ app.get("/oroscopoOdierno/:id", function(req, res) {
 
 
 app.get("/reddit", function (req, res){
-
-
   myObj = {};
   myObj['posts'] = [];
   reddit.get('/r/aww.json', function(err, response) {
@@ -147,43 +155,41 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
               });
 
             var dembtns = [
-"https://www.tumblr.com/reblog/183862510404/WTedm4H6",
-"https://www.tumblr.com/reblog/183862510159/ROC2Nj9p",
-"https://www.tumblr.com/reblog/183862510024/EQgiQNIb",
-"https://www.tumblr.com/reblog/183862509929/CE4NUsUZ",
-"https://www.tumblr.com/reblog/183862509579/YPiXizrW",
-"https://www.tumblr.com/reblog/183862785349/jX4MVZTk",
-"https://www.tumblr.com/reblog/183862784339/mx1hyJlB",
-"https://www.tumblr.com/reblog/183862783984/xfJz8CNU",
-"https://www.tumblr.com/reblog/183862783854/bzlMCzE9",
-"https://www.tumblr.com/reblog/183862736414/d08KoreG",
-"https://www.tumblr.com/reblog/183862895434/JdysQvpB",
-"https://www.tumblr.com/reblog/183862893879/IOEtKJ6N",
-"https://www.tumblr.com/reblog/183862877074/Z1QOyOWn",
-"https://www.tumblr.com/reblog/183862875554/4bx1Gz98",
-"https://www.tumblr.com/reblog/183862872904/aH3tcAbp",
-"https://www.tumblr.com/reblog/183862904319/mOXvKOoo",
-"https://www.tumblr.com/reblog/183862901709/MBlaIDDa",
-"https://www.tumblr.com/reblog/183862900219/4lJUxJKh",
-"https://www.tumblr.com/reblog/183862898634/n1u2WDZj",
-"https://www.tumblr.com/reblog/183862896909/SnB30OHu",
-"https://www.tumblr.com/reblog/183863204079/1lINC84g",
-"https://www.tumblr.com/reblog/183863201424/o2Dtkj5u",
-"https://www.tumblr.com/reblog/183863198589/5kHgnZU7",
-"https://www.tumblr.com/reblog/183863194429/8MekC4Gg",
-"https://www.tumblr.com/reblog/183863190609/e5puvcrH",
-"https://www.tumblr.com/reblog/183863218174/bmQtpKoE",
-"https://www.tumblr.com/reblog/183863215034/91z3f2m3",
-"https://www.tumblr.com/reblog/183863212679/hzBnMruO",
-"https://www.tumblr.com/reblog/183863209889/kFcupzoR",
-"https://www.tumblr.com/reblog/183863207114/lcXlFJuZ",
-"https://www.tumblr.com/reblog/183863236889/ZRJhsyuL",
-"https://www.tumblr.com/reblog/183863234229/g3ArMKq0",
-"https://www.tumblr.com/reblog/183863230779/9jHtFttn",
-"https://www.tumblr.com/reblog/183863228389/4VrydgaU",
-"https://www.tumblr.com/reblog/183863225749/pshqvIyY",
-
-
+              "https://www.tumblr.com/reblog/185007795257/ma1sxLDK",
+"https://www.tumblr.com/reblog/185007792807/7lTrA4ZB",
+"https://www.tumblr.com/reblog/185007790212/zho4uzGZ",
+"https://www.tumblr.com/reblog/185007786417/6ldqSeQN",
+"https://www.tumblr.com/reblog/185007780187/xfJz8CNU",
+"https://www.tumblr.com/reblog/185007809092/xARFjaoi",
+"https://www.tumblr.com/reblog/185007806727/ikBW7IfP",
+"https://www.tumblr.com/reblog/185007804392/ZVYlpfcg",
+"https://www.tumblr.com/reblog/185007801772/uh8aNWlN",
+"https://www.tumblr.com/reblog/185007798867/4JViRsOT",
+"https://www.tumblr.com/reblog/185007866212/YW2ezKf0",
+"https://www.tumblr.com/reblog/185007863552/ApDgSuC5",
+"https://www.tumblr.com/reblog/185007861322/7GpLAheN",
+"https://www.tumblr.com/reblog/185007859157/mmlSzPhw",
+"https://www.tumblr.com/reblog/185007856542/hzBnMruO",
+"https://www.tumblr.com/reblog/185007886097/a8ooO7HK",
+"https://www.tumblr.com/reblog/185007880552/uvapXFMS",
+"https://www.tumblr.com/reblog/185007878092/VKqkJ1Gs",
+"https://www.tumblr.com/reblog/185007874787/jV7soQzu",
+"https://www.tumblr.com/reblog/185007872107/ksbdyjNs",
+"https://www.tumblr.com/reblog/185007948542/QAFkxKof",
+"https://www.tumblr.com/reblog/185007944782/shLQe1ML",
+"https://www.tumblr.com/reblog/185007941702/KYiTciFg",
+"https://www.tumblr.com/reblog/185007938337/lcXlFJuZ",
+"https://www.tumblr.com/reblog/185007935462/aLq5VZAh",
+"https://www.tumblr.com/reblog/185007966117/q8WxVpOq",
+"https://www.tumblr.com/reblog/185007963837/rMAnqu6U",
+"https://www.tumblr.com/reblog/185007960887/gHz0jZOd",
+"https://www.tumblr.com/reblog/185007958547/7EPoXO3f",
+"https://www.tumblr.com/reblog/185007953967/jGs4jhz2",
+"https://www.tumblr.com/reblog/185007998327/no7AkbNg",
+"https://www.tumblr.com/reblog/185007994847/DkydM1cy",
+"https://www.tumblr.com/reblog/185007992072/fgmUJynv",
+"https://www.tumblr.com/reblog/185007989197/IxemCaU1",
+"https://www.tumblr.com/reblog/185007986697/xxBtowoq"
             ]
 
 
@@ -566,10 +572,37 @@ app.get("/cookie/", function(req, res) {
   res.send("cookie refreshed è.è")
 });
 
-app.get("/code/:id", function(req, res) {
+app.get("/TOP20/", function(req, res) {
   var ID = req.params.id;
 
-  res.send("I did it");
+  myObj = {};
+  myJSON = JSON.stringify(myObj);
+  myObj["posts"] = [];
+
+
+  const options = {
+    uri: 'https://www.tumblr.com/search/memes',
+    transform: function (body) {
+      return cheerio.load(body);
+    }
+  };
+  rp(options)
+    .then(($) => {
+      for(var i =0; i<5;i++)
+      {
+      var item = { "Notes" : ($(".note_link_current").eq(i).text()),
+                    "Reblog" : ($(".post_control post-control-icon reblog-aut").eq(i).text())
+                  }
+
+      myObj["posts"].push(item);
+      scrivi(myObj["posts"][i].Quote,myObj["posts"][i].Autore, i);
+      }
+      //console.log("Vediamo se worka il posting:\n");
+      //PostaInstagram(myObj["posts"][ID].Quote + " -- " + myObj["posts"][ID].Autore, ID);
+      res.send(myObj);
+    })
+
+  
 });
 
 app.set("port", serverPort);
