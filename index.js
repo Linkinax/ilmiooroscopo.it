@@ -154,43 +154,41 @@ app.get("/oroscopoSettimanale/:id", function(req, res) {
               });
 
             var dembtns = [
-              "https://www.tumblr.com/reblog/185007795257/ma1sxLDK",
-"https://www.tumblr.com/reblog/185007792807/7lTrA4ZB",
-"https://www.tumblr.com/reblog/185007790212/zho4uzGZ",
-"https://www.tumblr.com/reblog/185007786417/6ldqSeQN",
-"https://www.tumblr.com/reblog/185007780187/xfJz8CNU",
-"https://www.tumblr.com/reblog/185007809092/xARFjaoi",
-"https://www.tumblr.com/reblog/185007806727/ikBW7IfP",
-"https://www.tumblr.com/reblog/185007804392/ZVYlpfcg",
-"https://www.tumblr.com/reblog/185007801772/uh8aNWlN",
-"https://www.tumblr.com/reblog/185007798867/4JViRsOT",
-"https://www.tumblr.com/reblog/185007866212/YW2ezKf0",
-"https://www.tumblr.com/reblog/185007863552/ApDgSuC5",
-"https://www.tumblr.com/reblog/185007861322/7GpLAheN",
-"https://www.tumblr.com/reblog/185007859157/mmlSzPhw",
-"https://www.tumblr.com/reblog/185007856542/hzBnMruO",
-"https://www.tumblr.com/reblog/185007886097/a8ooO7HK",
-"https://www.tumblr.com/reblog/185007880552/uvapXFMS",
-"https://www.tumblr.com/reblog/185007878092/VKqkJ1Gs",
-"https://www.tumblr.com/reblog/185007874787/jV7soQzu",
-"https://www.tumblr.com/reblog/185007872107/ksbdyjNs",
-"https://www.tumblr.com/reblog/185007948542/QAFkxKof",
-"https://www.tumblr.com/reblog/185007944782/shLQe1ML",
-"https://www.tumblr.com/reblog/185007941702/KYiTciFg",
-"https://www.tumblr.com/reblog/185007938337/lcXlFJuZ",
-"https://www.tumblr.com/reblog/185007935462/aLq5VZAh",
-"https://www.tumblr.com/reblog/185007966117/q8WxVpOq",
-"https://www.tumblr.com/reblog/185007963837/rMAnqu6U",
-"https://www.tumblr.com/reblog/185007960887/gHz0jZOd",
-"https://www.tumblr.com/reblog/185007958547/7EPoXO3f",
-"https://www.tumblr.com/reblog/185007953967/jGs4jhz2",
-"https://www.tumblr.com/reblog/185007998327/no7AkbNg",
-"https://www.tumblr.com/reblog/185007994847/DkydM1cy",
-"https://www.tumblr.com/reblog/185007992072/fgmUJynv",
-"https://www.tumblr.com/reblog/185007989197/IxemCaU1",
-"https://www.tumblr.com/reblog/185007986697/xxBtowoq"
-            ]
-
+              "https://www.tumblr.com/reblog/188337842545/g97Olt7b",
+              "https://www.tumblr.com/reblog/188337840675/rgfGyzDD",
+              "https://www.tumblr.com/reblog/188337838675/sd8CY38k",
+              "https://www.tumblr.com/reblog/188337836995/4u7LHQKE",
+              "https://www.tumblr.com/reblog/188337835295/DKpoHzQd",
+              "https://www.tumblr.com/reblog/188337852495/SoobZnd6",
+              "https://www.tumblr.com/reblog/188337850825/Fm3kyaCA",
+              "https://www.tumblr.com/reblog/188337849070/cOOO4CgI",
+              "https://www.tumblr.com/reblog/188337846530/PHkEcce4",
+              "https://www.tumblr.com/reblog/188337844475/U0d9LT2u",
+              "https://www.tumblr.com/reblog/188337862330/iVxwe4am",
+              "https://www.tumblr.com/reblog/188337860615/CgcAh22N",
+              "https://www.tumblr.com/reblog/188337858730/bPL9DrGb",
+              "https://www.tumblr.com/reblog/188337855910/uXBduYuk",
+              "https://www.tumblr.com/reblog/188337854225/fJYNN4Is",
+              "https://www.tumblr.com/reblog/188337872555/Gvsuim9R",
+              "https://www.tumblr.com/reblog/188337870805/0hp7YIj1",
+              "https://www.tumblr.com/reblog/188337868835/vzvXknRH",
+              "https://www.tumblr.com/reblog/188337866935/BHRVbC3e",
+              "https://www.tumblr.com/reblog/188337864905/IfVxSGP3",
+              "https://www.tumblr.com/reblog/188337916785/b1v8krY4",
+              "https://www.tumblr.com/reblog/188337915015/IGi67hxt",
+              "https://www.tumblr.com/reblog/188337913205/YERWThUK",
+              "https://www.tumblr.com/reblog/188337910995/WdULYapH",
+              "https://www.tumblr.com/reblog/188337909510/v8P4VEhB",
+              "https://www.tumblr.com/reblog/188337925925/poGS5IcV",
+              "https://www.tumblr.com/reblog/188337924090/pVb0o1B4",
+              "https://www.tumblr.com/reblog/188337921970/VWlzROpt",
+              "https://www.tumblr.com/reblog/188337920475/T38Y9imc",
+              "https://www.tumblr.com/reblog/188337918705/FzSZwgUm",
+              "https://www.tumblr.com/reblog/188337937085/LMHGMa3D",
+              "https://www.tumblr.com/reblog/188337934775/RbKOSMqb",
+              "https://www.tumblr.com/reblog/188337932715/yhsOKrxh",
+              "https://www.tumblr.com/reblog/188337930115/vZVc7swX",
+              "https://www.tumblr.com/reblog/188337928480/3XEq6B3i"]
 
 
             for(var i=0;i< 35;i++)
@@ -383,15 +381,23 @@ app.get("/tumblrAwwRedditQueue", function(req, res) {
               //console.log(response);
               for( i in response['data']['children'])
               {
-
-                var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                if( response['data']['children'][i.toString()]['data']['title'] != null)
+                {
+                  var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
                               "title" : response['data']['children'][i.toString()]['data']['title'],
-                            "tags" : "funny, joke, programming, programmer, computer, humor"}
+                            "tags" : "funny, joke, programming, programmer, computer, humor"};
 
                 myObj["posts"].push(item);
+
+                }
+
+                
               }
-            for(var i=2; i<26; i++)
+
+              console.log(myObj);
+            for(var i=2; i<25; i++)
             {
+              console.log("i: \n"+ i);
               client.createPost("programminghumour.tumblr.com", params = { "type": "photo",
                                                                             "state": "queue",
                                                                           "caption": myObj["posts"][i].title,
