@@ -361,6 +361,73 @@ app.get("/tumblrAwwRedditQueue", function(req, res) {
                                   //console.log("Posted: \t" + myObj["posts"][i].title);
                                 });
         }
+        
+        myObj = {};
+        myJSON = JSON.stringify(myObj);
+        myObj["posts"] = [];
+
+        reddit.get('/r/Awwducational.json', function(err, response) {
+          if(err) throw err;
+          //console.log(response);
+          for( i in response['data']['children'])
+          {
+            //console.log(response['data']['children'][i.toString()]);
+            //console.log(response['data']['children'][i.toString()]['data']['title'] +"\t" + response['data']['children'][i.toString()]['data']['url'] +"\n");
+
+            var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                          "title" : response['data']['children'][i.toString()]['data']['title'],
+                        "tags" : "aww, cute, adorable, awww"}
+
+            myObj["posts"].push(item);
+          }
+        for(var i=2; i<26; i++)
+        {
+          clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
+                                                                        "state": "queue",
+                                                                      "caption": myObj["posts"][i].title,
+                                                                     "source": myObj["posts"][i].url,
+                                                                     "tags" : myObj["posts"][i].tags} ,
+                                function(err, data){
+                                  //console.log("Posted: \t" + myObj["posts"][i].title);
+                                });
+        }
+        
+
+
+
+
+
+        myObj = {};
+        myJSON = JSON.stringify(myObj);
+        myObj["posts"] = [];
+
+        reddit.get('/r/hardcoreaww/', function(err, response) {
+          if(err) throw err;
+          //console.log(response);
+          for( i in response['data']['children'])
+          {
+            //console.log(response['data']['children'][i.toString()]);
+            //console.log(response['data']['children'][i.toString()]['data']['title'] +"\t" + response['data']['children'][i.toString()]['data']['url'] +"\n");
+
+            var item = { "url" : response['data']['children'][i.toString()]['data']['url'],
+                          "title" : response['data']['children'][i.toString()]['data']['title'],
+                        "tags" : "aww, cute, adorable, awww"}
+
+            myObj["posts"].push(item);
+          }
+        for(var i=2; i<26; i++)
+        {
+          clientMemes.createPost("awwsfordays.tumblr.com", params = { "type": "photo",
+                                                                        "state": "queue",
+                                                                      "caption": myObj["posts"][i].title,
+                                                                     "source": myObj["posts"][i].url,
+                                                                     "tags" : myObj["posts"][i].tags} ,
+                                function(err, data){
+                                  //console.log("Posted: \t" + myObj["posts"][i].title);
+                                });
+        }
+
+
       });
     });
 
