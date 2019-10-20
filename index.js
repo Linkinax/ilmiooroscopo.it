@@ -401,7 +401,7 @@ app.get("/tumblrAwwRedditQueue", function(req, res) {
         myJSON = JSON.stringify(myObj);
         myObj["posts"] = [];
 
-        reddit.get('/r/hardcoreaww/', function(err, response) {
+        reddit.get('/r/ hardcoreaww/', function(err, response) {
           if(err) throw err;
           //console.log(response);
           for( i in response['data']['children'])
@@ -430,6 +430,8 @@ app.get("/tumblrAwwRedditQueue", function(req, res) {
 
       });
     });
+  });
+});
 
 
     app.get("/tumblrProgrammingHumourRedditQueue", function(req, res) {
