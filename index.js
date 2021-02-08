@@ -8,7 +8,7 @@ const cheerio = require('cheerio');
 const _ = require("lodash");
 const twilio = require('twilio');
 var reddit = require('redditor');
-require('newrelic');
+//require('newrelic');
 
 
 

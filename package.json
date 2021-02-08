@@ -13,20 +13,20 @@
   "author": "Alex J",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
+    "cheerio": "^1.0.0-rc.5",
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "instagram-web-api": "^2.0.0",
-    "jimp": "^0.3.5",
+    "instagram-web-api": "^2.2.2",
+    "jimp": "^0.3.11",
     "knex": "^0.15.2",
     "reddit-oauth": "^1.1.1",
-    "reddit-wrapper-v2": "^1.1.5",
+    "reddit-wrapper-v2": "^1.1.6",
     "redditor": "^1.1.1",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2",
-    "snoowrap": "^1.15.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "snoowrap": "^1.22.0",
     "tough-cookie-filestore2": "^1.0.0",
-    "tumblr.js": "^2.0.0",
-    "twilio": "^3.19.1"
+    "tumblr.js": "^2.0.2",
+    "twilio": "^3.55.1"
   }
 }
